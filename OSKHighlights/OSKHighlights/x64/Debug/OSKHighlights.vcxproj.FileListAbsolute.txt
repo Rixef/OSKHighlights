@@ -1,0 +1,4 @@
+C:\Users\Void\Documents\Visual Studio 2019\Projects\OSKHighlights\OSKHighlights\x64\Debug\OSKHighlights.Form1.resources
+C:\Users\Void\Documents\Visual Studio 2019\Projects\OSKHighlights\OSKHighlights\x64\Debug\OSKHighlights.vcxproj.GenerateResource.cache
+C:\Users\Void\Documents\Visual Studio 2019\Projects\OSKHighlights\OSKHighlights\x64\Debug\OSKHighlights.vcxprojAssemblyReference.cache
+C:\Users\Void\Documents\Visual Studio 2019\Projects\OSKHighlights\OSKHighlights\x64\Debug\OSKHighlights.Form2.resources
