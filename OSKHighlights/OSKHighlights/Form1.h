@@ -26,7 +26,7 @@ namespace OSKHighlights
 			{delete components;}
 		}
 	private: System::Windows::Forms::Button^ button1;
-    public: Form2^ f2 = gcnew Form2();
+    	public: Form2^ f2 = gcnew Form2();
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
@@ -130,9 +130,9 @@ namespace OSKHighlights
 	private: System::Windows::Forms::Button^ button102;
 	private: System::Windows::Forms::Button^ button103;
 	private: System::Windows::Forms::Button^ button104;
-    private: System::Windows::Forms::Timer^ timer1;
-private: System::Windows::Forms::Button^ button105;
-    private: System::ComponentModel::IContainer^ components;
+    	private: System::Windows::Forms::Timer^ timer1;
+	private: System::Windows::Forms::Button^ button105;
+    	private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
@@ -2268,6 +2268,94 @@ private: System::Windows::Forms::Button^ button105;
         String^ toggledkeystr = "";
     private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e)
     {
+        #pragma region SaveSettings
+        if (f2->checkBox3->Checked == true)
+        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("OSKTopMostCB:false","OSKTopMostCB:true");}
+        else if (f2->checkBox3->Checked == false)
+        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("OSKTopMostCB:true", "OSKTopMostCB:false");}
+        if (f2->checkBox1->Checked == true)
+        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("ToggleSpamKeysCB:false", "ToggleSpamKeysCB:true");}
+        else if (f2->checkBox1->Checked == false)
+        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("ToggleSpamKeysCB:true", "ToggleSpamKeysCB:false");}
+        if (f2->checkBox2->Checked == true)
+        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("HoldSpamKeysCB:false", "HoldSpamKeysCB:true");}
+        else if (f2->checkBox2->Checked == false)
+        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("HoldSpamKeysCB:true", "HoldSpamKeysCB:false");}
+        if (f2->checkBox4->Checked == true)
+        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("SpecificWindowCB:false", "SpecificWindowCB:true");}
+        else if (f2->checkBox4->Checked == false)
+        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("SpecificWindowCB:true", "SpecificWindowCB:false");}
+        int lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpecificWindowTitle:"));
+        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpecificWindowTitle:", ""), f2->textBox1->Text);//strip off the text in the beginning
+        lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpecificWindowClass:"));
+        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpecificWindowClass:", ""), f2->textBox2->Text);//strip off the text in the beginning
+        lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKOpacity:"));
+        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("OSKOpacity:", ""), f2->trackBar1->Value.ToString());//strip off the text in the beginning
+        lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKSettingsOpacity:"));
+        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("OSKSettingsOpacity:", ""), f2->trackBar2->Value.ToString());//strip off the text in the beginning
+        lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpamKeysFilter:"));
+        String^ tmpskfilter = f2->richTextBox1->Text->Replace(" ","")->Replace("\n",";")->Replace("\par","")->Replace("\r","");
+        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpamKeysFilter:", "")->Replace("\n","")->Replace("\par",""), tmpskfilter);//strip off the text in the beginning
+        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("\n\n","\n");
+        if (settingsFileCreated == true)
+        {
+            f2->richTextBox2->SaveFile("Settings.rtf");//save twice 'cause dumb
+            f2->richTextBox2->SaveFile("Settings.rtf");
+        }
+        #pragma endregion SaveSettings
+
+#pragma region Create Settings File If It Does Not Exist Already, otherwise load it
+        if (settingsFileCreated == false)
+        {
+            GetFileAttributesW(L"Settings.rtf");//try to get the file attributes
+            if (GetLastError() == ERROR_FILE_NOT_FOUND)//if getlasterror returns invalid file attribs then the file doesn't exist so we need to create it
+            {
+                f2->richTextBox2->SaveFile("Settings.rtf");//what a dumb fucking solution...spent hours trying to get this to work to find out that I just
+                f2->richTextBox2->SaveFile("Settings.rtf");//need to SaveFile() twice.
+                settingsFileCreated = true;
+            }
+            else
+            {settingsFileCreated = true;}
+            if (settingsFileCreated == true)
+            {
+                f2->richTextBox2->LoadFile("Settings.rtf");//load twice 'cause it's dumb af
+                f2->richTextBox2->LoadFile("Settings.rtf");
+                #pragma region LoadSettings
+                //checkboxes
+                if ((f2->richTextBox2->Find("OSKTopMostCB:false") != -1 && f2->checkBox3->Checked == true) || (f2->richTextBox2->Find("OSKTopMostCB:false") != -1 && f2->checkBox3->Checked == false))
+                {f2->checkBox3->Checked = false;}
+                else if ((f2->richTextBox2->Find("OSKTopMostCB:true") != -1 && f2->checkBox3->Checked == false) || (f2->richTextBox2->Find("OSKTopMostCB:true") != -1 && f2->checkBox3->Checked == true))
+                {f2->checkBox3->Checked = true;}
+                if ((f2->richTextBox2->Find("ToggleSpamKeysCB:false") != -1 && f2->checkBox1->Checked == true) || (f2->richTextBox2->Find("ToggleSpamKeysCB:false") != -1 && f2->checkBox1->Checked == false))
+                {f2->checkBox1->Checked = false;}
+                else if ((f2->richTextBox2->Find("ToggleSpamKeysCB:true") != -1 && f2->checkBox1->Checked == false) || (f2->richTextBox2->Find("ToggleSpamKeysCB:true") != -1 && f2->checkBox1->Checked == true))
+                {f2->checkBox1->Checked = true;}
+                if ((f2->richTextBox2->Find("HoldSpamKeysCB:false") != -1 && f2->checkBox2->Checked == true) || (f2->richTextBox2->Find("HoldSpamKeysCB:false") != -1 && f2->checkBox2->Checked == false))
+                {f2->checkBox2->Checked = false;}
+                else if ((f2->richTextBox2->Find("HoldSpamKeysCB:true") != -1 && f2->checkBox2->Checked == false) || (f2->richTextBox2->Find("HoldSpamKeysCB:true") != -1 && f2->checkBox2->Checked == true))
+                {f2->checkBox2->Checked = true;}
+                if ((f2->richTextBox2->Find("SpecificWindowCB:false") != -1 && f2->checkBox4->Checked == true) || (f2->richTextBox2->Find("SpecificWindowCB:false") != -1 && f2->checkBox4->Checked == false))
+                {f2->checkBox4->Checked = false;}
+                else if ((f2->richTextBox2->Find("SpecificWindowCB:true") != -1 && f2->checkBox4->Checked == false) || (f2->richTextBox2->Find("SpecificWindowCB:true") != -1 && f2->checkBox4->Checked == true))
+                {f2->checkBox4->Checked = true;}
+                //textboxes
+                int lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpecificWindowTitle:"));
+                f2->textBox1->Text = f2->richTextBox2->Lines[lineNum]->Replace("SpecificWindowTitle:", "")->Replace("\n","");
+                lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpecificWindowClass:"));
+                f2->textBox2->Text = f2->richTextBox2->Lines[lineNum]->Replace("SpecificWindowClass:", "")->Replace("\n","");
+                //trackbars
+                lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKOpacity:"));
+                f2->trackBar1->Value = stoi(marshal_as<string>(f2->richTextBox2->Lines[lineNum]->Replace("OSKOpacity:", "")->Replace("\n", "")), 0, 10);
+                lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKSettingsOpacity:"));
+                f2->trackBar2->Value = stoi(marshal_as<string>(f2->richTextBox2->Lines[lineNum]->Replace("OSKSettingsOpacity:", "")->Replace("\n", "")), 0, 10);
+                //richtextboxes
+                lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpamKeysFilter:"));
+                f2->richTextBox1->Text = f2->richTextBox2->Lines[lineNum]->Replace("SpamKeysFilter:", "")->Replace(";","\n");
+                #pragma endregion LoadSettings
+            }
+        }
+#pragma endregion Create Settings File If It Does Not Exist Already, otherwise load it
+
         #pragma region findwindow to send keypresses to
         wstring foregroundwindowtitle;
         f1hwnd = (HWND)this->Handle.ToInt32();
