@@ -2294,8 +2294,8 @@ private: System::Windows::Forms::Button^ button105;
         lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKSettingsOpacity:"));
         f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("OSKSettingsOpacity:", ""), f2->trackBar2->Value.ToString());//strip off the text in the beginning
         lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpamKeysFilter:"));
-        String^ tmpskfilter = f2->richTextBox1->Text->Replace(" ","")->Replace("\n",";")->Replace("\par","")->Replace("\r","");
-        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpamKeysFilter:", "")->Replace("\n","")->Replace("\par",""), tmpskfilter);//strip off the text in the beginning
+        String^ tmpskfilter = f2->richTextBox1->Text->Replace(" ","")->Replace("\n",";")->Replace("\r","");
+        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpamKeysFilter:", "")->Replace("\n",""), tmpskfilter);//strip off the text in the beginning
         f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("\n\n","\n");
         if (settingsFileCreated == true)
         {
