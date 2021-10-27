@@ -44,6 +44,8 @@ namespace OSKHighlights
 	public: System::Windows::Forms::RichTextBox^ richTextBox2;
 	public: System::Windows::Forms::CheckBox^ checkBox4;
 	public: System::Windows::Forms::CheckBox^ checkBox5;
+	private: System::Windows::Forms::ToolTip^ toolTip1;
+	public:
 	private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
@@ -71,6 +73,7 @@ namespace OSKHighlights
 			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
 			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->BeginInit();
 			this->SuspendLayout();
@@ -83,6 +86,8 @@ namespace OSKHighlights
 			this->checkBox1->Size = System::Drawing::Size(155, 17);
 			this->checkBox1->TabIndex = 0;
 			this->checkBox1->Text = L"Toggle Spam Keypress";
+			this->toolTip1->SetToolTip(this->checkBox1, L"If this is checked then you just need to press a key in the filter list and it wi"
+				L"ll spam the key for you");
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &Form2::checkBox1_CheckedChanged);
 			// 
@@ -94,6 +99,8 @@ namespace OSKHighlights
 			this->checkBox2->Size = System::Drawing::Size(142, 17);
 			this->checkBox2->TabIndex = 1;
 			this->checkBox2->Text = L"Hold Spam Keypress";
+			this->toolTip1->SetToolTip(this->checkBox2, L"If this is checked then holding one a the spam keys from the filter list will spa"
+				L"m it while you\'re holding it");
 			this->checkBox2->UseVisualStyleBackColor = true;
 			this->checkBox2->CheckedChanged += gcnew System::EventHandler(this, &Form2::checkBox2_CheckedChanged);
 			// 
@@ -158,6 +165,7 @@ namespace OSKHighlights
 			this->button105->Size = System::Drawing::Size(25, 25);
 			this->button105->TabIndex = 105;
 			this->button105->Text = L"X";
+			this->toolTip1->SetToolTip(this->button105, L"Close Settings");
 			this->button105->UseVisualStyleBackColor = false;
 			this->button105->Click += gcnew System::EventHandler(this, &Form2::button105_Click);
 			// 
@@ -257,6 +265,7 @@ namespace OSKHighlights
 			this->richTextBox1->Size = System::Drawing::Size(142, 187);
 			this->richTextBox1->TabIndex = 115;
 			this->richTextBox1->Text = L"E\nQ";
+			this->toolTip1->SetToolTip(this->richTextBox1, L"Add keys into this list that you want to be spam keys");
 			// 
 			// checkBox3
 			// 
@@ -268,6 +277,8 @@ namespace OSKHighlights
 			this->checkBox3->Size = System::Drawing::Size(104, 17);
 			this->checkBox3->TabIndex = 116;
 			this->checkBox3->Text = L"OSK TopMost";
+			this->toolTip1->SetToolTip(this->checkBox3, L"If this is checked then the On Screen Keyboard will attempt to stay on top of all"
+				L" other windows even when it\'s not focused.");
 			this->checkBox3->UseVisualStyleBackColor = true;
 			// 
 			// richTextBox2
@@ -293,6 +304,8 @@ namespace OSKHighlights
 			this->checkBox4->Size = System::Drawing::Size(308, 17);
 			this->checkBox4->TabIndex = 118;
 			this->checkBox4->Text = L"Only spam keys when specific window is focused:";
+			this->toolTip1->SetToolTip(this->checkBox4, L"If this is unchecked then any window that is the foreground window will have the "
+				L"spam keys in the filter list sent to it.");
 			this->checkBox4->UseVisualStyleBackColor = true;
 			// 
 			// checkBox5
@@ -313,6 +326,8 @@ namespace OSKHighlights
 			this->checkBox5->Name = L"checkBox5";
 			this->checkBox5->Size = System::Drawing::Size(30, 30);
 			this->checkBox5->TabIndex = 119;
+			this->toolTip1->SetToolTip(this->checkBox5, L"If you don\'t know the window class then click this and then click the window you "
+				L"want the class of and it will get it automatically.");
 			this->checkBox5->UseVisualStyleBackColor = false;
 			// 
 			// Form2
@@ -417,6 +432,8 @@ namespace OSKHighlights
 		{
 			this->Opacity = 1.0;
 		}
+		this->toolTip1->SetToolTip(trackBar1, trackBar1->Value.ToString());
+		this->toolTip1->SetToolTip(trackBar2, trackBar2->Value.ToString());
 		#pragma endregion opacity tracker for the settings form
 	}
 	private: System::Void button105_Click(System::Object^ sender, System::EventArgs^ e)
