@@ -8,6 +8,10 @@ HWND windowtosendkeypressesto;
 TCHAR WindowTitle[MAX_PATH];
 WCHAR WindowClass[MAX_PATH];
 
+HANDLE fileHandle;
+fstream file;
+bool settingsFileCreated = false;
+
 #pragma region VK_Keys
 //0-9
 WORD VK_0 = 0x30;
