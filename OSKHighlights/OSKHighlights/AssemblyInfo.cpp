@@ -6,12 +6,12 @@ using namespace System::Runtime::CompilerServices;
 using namespace System::Runtime::InteropServices;
 using namespace System::Security::Permissions;
 
-[assembly:AssemblyTitleAttribute(L"CppCLRWinformsProjekt")];
-[assembly:AssemblyDescriptionAttribute(L"")];
+[assembly:AssemblyTitleAttribute(L"OSKHighlights")];
+[assembly:AssemblyDescriptionAttribute(L"On Screen Keyboard Highlighter and Key Spammer")];
 [assembly:AssemblyConfigurationAttribute(L"")];
 [assembly:AssemblyCompanyAttribute(L"")];
-[assembly:AssemblyProductAttribute(L"CppCLRWinformsProjekt")];
-[assembly:AssemblyCopyrightAttribute(L"Copyright (c)  2019")];
+[assembly:AssemblyProductAttribute(L"OSKHighlights")];
+[assembly:AssemblyCopyrightAttribute(L"Copyright (c) Rixef 2021")];
 [assembly:AssemblyTrademarkAttribute(L"")];
 [assembly:AssemblyCultureAttribute(L"")];
 
