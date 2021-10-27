@@ -276,13 +276,12 @@ namespace OSKHighlights
 			this->richTextBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->richTextBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->richTextBox2->Location = System::Drawing::Point(567, 0);
+			this->richTextBox2->Location = System::Drawing::Point(548, 0);
 			this->richTextBox2->Name = L"richTextBox2";
-			this->richTextBox2->Size = System::Drawing::Size(243, 311);
+			this->richTextBox2->Size = System::Drawing::Size(285, 311);
 			this->richTextBox2->TabIndex = 117;
-			this->richTextBox2->Text = L"OSKTopMostCB:\nToggleSpamKeysCB:\nHoldSpamKeysCB:\nSpecificWindowCB:\nSpecificWindowT"
-				L"itle:\nSpecificWindowClass:\nOSKOpacity:\nOSKSettingsOpacity:\nSpamKeysFilter:";
-			this->richTextBox2->Visible = false;
+			this->richTextBox2->Text = resources->GetString(L"richTextBox2.Text");
+			this->richTextBox2->WordWrap = false;
 			// 
 			// checkBox4
 			// 
@@ -322,7 +321,7 @@ namespace OSKHighlights
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->ClientSize = System::Drawing::Size(822, 323);
+			this->ClientSize = System::Drawing::Size(845, 323);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->checkBox4);
 			this->Controls->Add(this->richTextBox2);
