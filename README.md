@@ -5,3 +5,17 @@ Aside from that, it is also a Key Spammer, useful for gaming. Fingers tired from
 just hold the key down and it'll send a keypress repeatedly for you. Don't wanna hold the key down either? There's an option for that as well; simply put what keys you want to be
 toggleable keys in the Spam Keys Filter list in the Settings and then click the "Toggle Spam Keys" checkbox and when you press those keys, you don't need to hold it or tap it
 repeatedly 'til your fingers are raw. You simply press the key once, and it'll spam it for you while you go and brew yourself a cup of coffee.
+
+## Main Window
+<div align="center">
+  <p>
+    <img src="https://github.com/Rixef/OSKHighlights/blob/main/.github/OSKH.png" width="902" alt="OSKH" />
+  </p>
+</div>
+
+## Settings Window
+<div align="center">
+  <p>
+    <img src="https://github.com/Rixef/OSKHighlights/blob/main/.github/OSKHSettings.png" width="545" alt="OSKHSettings" />
+  </p>
+</div>
