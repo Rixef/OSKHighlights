@@ -26,7 +26,7 @@ namespace OSKHighlights
 			{delete components;}
 		}
 	private: System::Windows::Forms::Button^ button1;
-    	public: Form2^ f2 = gcnew Form2();
+    public: Form2^ f2 = gcnew Form2();
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
@@ -130,9 +130,9 @@ namespace OSKHighlights
 	private: System::Windows::Forms::Button^ button102;
 	private: System::Windows::Forms::Button^ button103;
 	private: System::Windows::Forms::Button^ button104;
-    	private: System::Windows::Forms::Timer^ timer1;
-	private: System::Windows::Forms::Button^ button105;
-    	private: System::ComponentModel::IContainer^ components;
+    private: System::Windows::Forms::Timer^ timer1;
+private: System::Windows::Forms::Button^ button105;
+    private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
@@ -279,7 +279,7 @@ namespace OSKHighlights
             this->button2->Name = L"button2";
             this->button2->Size = System::Drawing::Size(45, 45);
             this->button2->TabIndex = 1;
-            this->button2->Text = L"F1";
+            this->button2->Text = L"f1";
             this->button2->UseVisualStyleBackColor = false;
             // 
             // button3
@@ -297,7 +297,7 @@ namespace OSKHighlights
             this->button3->Name = L"button3";
             this->button3->Size = System::Drawing::Size(45, 45);
             this->button3->TabIndex = 2;
-            this->button3->Text = L"F2";
+            this->button3->Text = L"f2";
             this->button3->UseVisualStyleBackColor = false;
             // 
             // button4
@@ -315,7 +315,7 @@ namespace OSKHighlights
             this->button4->Name = L"button4";
             this->button4->Size = System::Drawing::Size(45, 45);
             this->button4->TabIndex = 3;
-            this->button4->Text = L"F3";
+            this->button4->Text = L"f3";
             this->button4->UseVisualStyleBackColor = false;
             // 
             // button5
@@ -333,7 +333,7 @@ namespace OSKHighlights
             this->button5->Name = L"button5";
             this->button5->Size = System::Drawing::Size(45, 45);
             this->button5->TabIndex = 4;
-            this->button5->Text = L"F4";
+            this->button5->Text = L"f4";
             this->button5->UseVisualStyleBackColor = false;
             // 
             // button6
@@ -351,7 +351,7 @@ namespace OSKHighlights
             this->button6->Name = L"button6";
             this->button6->Size = System::Drawing::Size(45, 45);
             this->button6->TabIndex = 5;
-            this->button6->Text = L"F5";
+            this->button6->Text = L"f5";
             this->button6->UseVisualStyleBackColor = false;
             // 
             // button7
@@ -369,7 +369,7 @@ namespace OSKHighlights
             this->button7->Name = L"button7";
             this->button7->Size = System::Drawing::Size(45, 45);
             this->button7->TabIndex = 6;
-            this->button7->Text = L"F6";
+            this->button7->Text = L"f6";
             this->button7->UseVisualStyleBackColor = false;
             // 
             // button8
@@ -387,7 +387,7 @@ namespace OSKHighlights
             this->button8->Name = L"button8";
             this->button8->Size = System::Drawing::Size(45, 45);
             this->button8->TabIndex = 7;
-            this->button8->Text = L"F7";
+            this->button8->Text = L"f7";
             this->button8->UseVisualStyleBackColor = false;
             // 
             // button9
@@ -405,7 +405,7 @@ namespace OSKHighlights
             this->button9->Name = L"button9";
             this->button9->Size = System::Drawing::Size(45, 45);
             this->button9->TabIndex = 8;
-            this->button9->Text = L"F8";
+            this->button9->Text = L"f8";
             this->button9->UseVisualStyleBackColor = false;
             // 
             // button10
@@ -423,7 +423,7 @@ namespace OSKHighlights
             this->button10->Name = L"button10";
             this->button10->Size = System::Drawing::Size(45, 45);
             this->button10->TabIndex = 9;
-            this->button10->Text = L"F9";
+            this->button10->Text = L"f9";
             this->button10->UseVisualStyleBackColor = false;
             // 
             // button11
@@ -441,7 +441,7 @@ namespace OSKHighlights
             this->button11->Name = L"button11";
             this->button11->Size = System::Drawing::Size(45, 45);
             this->button11->TabIndex = 10;
-            this->button11->Text = L"F10";
+            this->button11->Text = L"f10";
             this->button11->UseVisualStyleBackColor = false;
             // 
             // button12
@@ -459,7 +459,7 @@ namespace OSKHighlights
             this->button12->Name = L"button12";
             this->button12->Size = System::Drawing::Size(45, 45);
             this->button12->TabIndex = 11;
-            this->button12->Text = L"F11";
+            this->button12->Text = L"f11";
             this->button12->UseVisualStyleBackColor = false;
             // 
             // button13
@@ -477,7 +477,7 @@ namespace OSKHighlights
             this->button13->Name = L"button13";
             this->button13->Size = System::Drawing::Size(45, 45);
             this->button13->TabIndex = 12;
-            this->button13->Text = L"F12";
+            this->button13->Text = L"f12";
             this->button13->UseVisualStyleBackColor = false;
             // 
             // button14
@@ -513,7 +513,7 @@ namespace OSKHighlights
             this->button15->Name = L"button15";
             this->button15->Size = System::Drawing::Size(45, 45);
             this->button15->TabIndex = 14;
-            this->button15->Text = L"ScrollLock";
+            this->button15->Text = L"Scrolllock";
             this->button15->UseVisualStyleBackColor = false;
             // 
             // button16
@@ -819,7 +819,7 @@ namespace OSKHighlights
             this->button32->Name = L"button32";
             this->button32->Size = System::Drawing::Size(74, 45);
             this->button32->TabIndex = 31;
-            this->button32->Text = L"Caps Lock";
+            this->button32->Text = L"Caps lock";
             this->button32->UseVisualStyleBackColor = false;
             // 
             // button33
@@ -1808,7 +1808,7 @@ namespace OSKHighlights
             this->button87->Name = L"button87";
             this->button87->Size = System::Drawing::Size(45, 45);
             this->button87->TabIndex = 81;
-            this->button87->Text = L"NumLock";
+            this->button87->Text = L"numlock";
             this->button87->UseVisualStyleBackColor = false;
             // 
             // button88
@@ -2429,7 +2429,7 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find(toggledkeystr) != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find(toggledkeystr->ToLower()) != -1)
                     {sikey("vk", toggledkey);}
                 }
                 else if (f2->checkBox4->Checked == false)
@@ -2455,6 +2455,9 @@ namespace OSKHighlights
             toggledkeystr = "";
         }
 
+        if (GetForegroundWindow() != f2hwnd || f2->richTextBox1->Focused == false)
+        {f2->richTextBox1->Text = f2->richTextBox1->Text->ToLower();}//lowercase all the text in spam keys filter list for simplicity of finding the strings
+
         if (GetAsyncKeyState(VK_ESCAPE) < 0)
         {
             button1->BackColor = Color::Gray;
@@ -2462,18 +2465,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_ESCAPE;
-                toggledkeystr = "Escape";
+                toggledkeystr = "escape";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Escape") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("escape") != -1)
                     {sikey("vk", VK_ESCAPE);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Escape") != -1)
+                    if (f2->richTextBox1->Find("escape") != -1)
                     {sikey("vk", VK_ESCAPE);}
                 }
             }
@@ -2489,18 +2492,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F1;
-                toggledkeystr = "F1";
+                toggledkeystr = "f1";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F1") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f1") != -1)
                     {sikey("vk", VK_F1);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F1") != -1)
+                    if (f2->richTextBox1->Find("f1") != -1)
                     {sikey("vk", VK_F1);}
                 }
             }
@@ -2516,18 +2519,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F2;
-                toggledkeystr = "F2";
+                toggledkeystr = "f2";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F2") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f2") != -1)
                     {sikey("vk", VK_F2);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F2") != -1)
+                    if (f2->richTextBox1->Find("f2") != -1)
                     {sikey("vk", VK_F2);}
                 }
             }
@@ -2543,18 +2546,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F3;
-                toggledkeystr = "F3";
+                toggledkeystr = "f3";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F3") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f3") != -1)
                     {sikey("vk", VK_F3);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F3") != -1)
+                    if (f2->richTextBox1->Find("f3") != -1)
                     {sikey("vk", VK_F3);}
                 }
             }
@@ -2570,18 +2573,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F4;
-                toggledkeystr = "F4";
+                toggledkeystr = "f4";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F4") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f4") != -1)
                     {sikey("vk", VK_F4);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F4") != -1)
+                    if (f2->richTextBox1->Find("f4") != -1)
                     {sikey("vk", VK_F4);}
                 }
             }
@@ -2597,18 +2600,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F5;
-                toggledkeystr = "F5";
+                toggledkeystr = "f5";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F5") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f5") != -1)
                     {sikey("vk", VK_F5);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F5") != -1)
+                    if (f2->richTextBox1->Find("f5") != -1)
                     {sikey("vk", VK_F5);}
                 }
             }
@@ -2624,18 +2627,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F6;
-                toggledkeystr = "F6";
+                toggledkeystr = "f6";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F6") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f6") != -1)
                     {sikey("vk", VK_F6);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F6") != -1)
+                    if (f2->richTextBox1->Find("f6") != -1)
                     {sikey("vk", VK_F6);}
                 }
             }
@@ -2651,18 +2654,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F7;
-                toggledkeystr = "F7";
+                toggledkeystr = "f7";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F7") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f7") != -1)
                     {sikey("vk", VK_F7);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F7") != -1)
+                    if (f2->richTextBox1->Find("f7") != -1)
                     {sikey("vk", VK_F7);}
                 }
             }
@@ -2678,18 +2681,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F8;
-                toggledkeystr = "F8";
+                toggledkeystr = "f8";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F8") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f8") != -1)
                     {sikey("vk", VK_F8);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F8") != -1)
+                    if (f2->richTextBox1->Find("f8") != -1)
                     {sikey("vk", VK_F8);}
                 }
             }
@@ -2705,18 +2708,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F9;
-                toggledkeystr = "F9";
+                toggledkeystr = "f9";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F9") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f9") != -1)
                     {sikey("vk", VK_F9);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F9") != -1)
+                    if (f2->richTextBox1->Find("f9") != -1)
                     {sikey("vk", VK_F9);}
                 }
             }
@@ -2732,18 +2735,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F10;
-                toggledkeystr = "F10";
+                toggledkeystr = "f10";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F10") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f10") != -1)
                     {sikey("vk", VK_F10);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F10") != -1)
+                    if (f2->richTextBox1->Find("f10") != -1)
                     {sikey("vk", VK_F10);}
                 }
             }
@@ -2759,18 +2762,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F11;
-                toggledkeystr = "F11";
+                toggledkeystr = "f11";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F11") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f11") != -1)
                     {sikey("vk", VK_F11);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F11") != -1)
+                    if (f2->richTextBox1->Find("f11") != -1)
                     {sikey("vk", VK_F11);}
                 }
             }
@@ -2786,18 +2789,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_F12;
-                toggledkeystr = "F12";
+                toggledkeystr = "f12";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F12") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f12") != -1)
                     {sikey("vk", VK_F12);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F12") != -1)
+                    if (f2->richTextBox1->Find("f12") != -1)
                     {sikey("vk", VK_F12);}
                 }
             }
@@ -2813,18 +2816,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_SNAPSHOT;
-                toggledkeystr = "PrintScreen";
+                toggledkeystr = "printscreen";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("PrintScreen") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("printscreen") != -1)
                     {sikey("vk", VK_SNAPSHOT);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("PrintScreen") != -1)
+                    if (f2->richTextBox1->Find("printscreen") != -1)
                     {sikey("vk", VK_SNAPSHOT);}
                 }
             }
@@ -2840,18 +2843,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_SCROLL;
-                toggledkeystr = "ScrollLock";
+                toggledkeystr = "scrolllock";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("ScrollLock") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("scrolllock") != -1)
                     {sikey("vk", VK_SCROLL);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("ScrollLock") != -1)
+                    if (f2->richTextBox1->Find("scrolllock") != -1)
                     {sikey("vk", VK_SCROLL);}
                 }
             }
@@ -2867,18 +2870,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_PAUSE;
-                toggledkeystr = "PauseBreak";
+                toggledkeystr = "pausebreak";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("PauseBreak") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("pausebreak") != -1)
                     {sikey("vk", VK_PAUSE);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("PauseBreak") != -1)
+                    if (f2->richTextBox1->Find("pausebreak") != -1)
                     {sikey("vk", VK_PAUSE);}
                 }
             }
@@ -3245,18 +3248,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_BACK;
-                toggledkeystr = "Backspace";
+                toggledkeystr = "backspace";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Backspace") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("backspace") != -1)
                     {sikey("vk", VK_BACK);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Backspace") != -1)
+                    if (f2->richTextBox1->Find("backspace") != -1)
                     {sikey("vk", VK_BACK);}
                 }
             }
@@ -3272,18 +3275,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_INSERT;
-                toggledkeystr = "Insert";
+                toggledkeystr = "insert";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Insert") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("insert") != -1)
                     {sikey("vk", VK_INSERT);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Insert") != -1)
+                    if (f2->richTextBox1->Find("insert") != -1)
                     {sikey("vk", VK_INSERT);}
                 }
             }
@@ -3299,18 +3302,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_HOME;
-                toggledkeystr = "Home";
+                toggledkeystr = "home";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Home") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("home") != -1)
                     {sikey("vk", VK_HOME);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Home") != -1)
+                    if (f2->richTextBox1->Find("home") != -1)
                     {sikey("vk", VK_HOME);}
                 }
             }
@@ -3326,18 +3329,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_PRIOR;
-                toggledkeystr = "PageUp";
+                toggledkeystr = "pageup";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("PageUp") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("pageup") != -1)
                     {sikey("vk", VK_PRIOR);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("PageUp") != -1)
+                    if (f2->richTextBox1->Find("pageup") != -1)
                     {sikey("vk", VK_PRIOR);}
                 }
             }
@@ -3353,18 +3356,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMLOCK;
-                toggledkeystr = "NumLock";
+                toggledkeystr = "numlock";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("NumLock") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("numlock") != -1)
                     {sikey("vk", VK_NUMLOCK);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("NumLock") != -1)
+                    if (f2->richTextBox1->Find("numlock") != -1)
                     {sikey("vk", VK_NUMLOCK);}
                 }
             }
@@ -3380,18 +3383,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_DIVIDE;
-                toggledkeystr = "Num/";
+                toggledkeystr = "num/";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num/") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num/") != -1)
                     {sikey("vk", VK_DIVIDE);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num/") != -1)
+                    if (f2->richTextBox1->Find("num/") != -1)
                     {sikey("vk", VK_DIVIDE);}
                 }
             }
@@ -3407,18 +3410,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_MULTIPLY;
-                toggledkeystr = "Num*";
+                toggledkeystr = "num*";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num*") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num*") != -1)
                     {sikey("vk", VK_MULTIPLY);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num*") != -1)
+                    if (f2->richTextBox1->Find("num*") != -1)
                     {sikey("vk", VK_MULTIPLY);}
                 }
             }
@@ -3434,18 +3437,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_SUBTRACT;
-                toggledkeystr = "Num-";
+                toggledkeystr = "num-";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num-") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num-") != -1)
                     {sikey("vk", VK_SUBTRACT);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num-") != -1)
+                    if (f2->richTextBox1->Find("num-") != -1)
                     {sikey("vk", VK_SUBTRACT);}
                 }
             }
@@ -3461,18 +3464,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_TAB;
-                toggledkeystr = "Tab";
+                toggledkeystr = "tab";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Tab") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("tab") != -1)
                     {sikey("vk", VK_TAB);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Tab") != -1)
+                    if (f2->richTextBox1->Find("tab") != -1)
                     {sikey("vk", VK_TAB);}
                 }
             }
@@ -3488,18 +3491,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_Q;
-                toggledkeystr = "Q";
+                toggledkeystr = "q";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Q") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("q") != -1)
                     {sikey("vk", VK_Q);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Q") != -1)
+                    if (f2->richTextBox1->Find("q") != -1)
                     {sikey("vk", VK_Q);}
                 }
             }
@@ -3515,18 +3518,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_W;
-                toggledkeystr = "W";
+                toggledkeystr = "w";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("W") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("w") != -1)
                     {sikey("vk", VK_W);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("W") != -1)
+                    if (f2->richTextBox1->Find("w") != -1)
                     {sikey("vk", VK_W);}
                 }
             }
@@ -3548,12 +3551,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("E") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("e") != -1)
                     {sikey("vk", VK_E);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("E") != -1)
+                    if (f2->richTextBox1->Find("e") != -1)
                     {sikey("vk", VK_E);}
                 }
             }
@@ -3575,12 +3578,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("R") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("r") != -1)
                     {sikey("vk", VK_R);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("R") != -1)
+                    if (f2->richTextBox1->Find("r") != -1)
                     {sikey("vk", VK_R);}
                 }
             }
@@ -3602,12 +3605,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("T") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("t") != -1)
                     {sikey("vk", VK_T);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("T") != -1)
+                    if (f2->richTextBox1->Find("t") != -1)
                     {sikey("vk", VK_T);}
                 }
             }
@@ -3629,12 +3632,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Y") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("y") != -1)
                     {sikey("vk", VK_Y);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Y") != -1)
+                    if (f2->richTextBox1->Find("y") != -1)
                     {sikey("vk", VK_Y);}
                 }
             }
@@ -3656,12 +3659,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("U") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("u") != -1)
                     {sikey("vk", VK_U);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("U") != -1)
+                    if (f2->richTextBox1->Find("u") != -1)
                     {sikey("vk", VK_U);}
                 }
             }
@@ -3683,12 +3686,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("I") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("i") != -1)
                     {sikey("vk", VK_I);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("I") != -1)
+                    if (f2->richTextBox1->Find("i") != -1)
                     {sikey("vk", VK_I);}
                 }
             }
@@ -3710,12 +3713,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("O") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("o") != -1)
                     {sikey("vk", VK_O);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("O") != -1)
+                    if (f2->richTextBox1->Find("o") != -1)
                     {sikey("vk", VK_O);}
                 }
             }
@@ -3737,12 +3740,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("P") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("p") != -1)
                     {sikey("vk", VK_P);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("P") != -1)
+                    if (f2->richTextBox1->Find("p") != -1)
                     {sikey("vk", VK_P);}
                 }
             }
@@ -3845,12 +3848,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Delete") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("delete") != -1)
                     {sikey("vk", VK_DELETE);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Delete") != -1)
+                    if (f2->richTextBox1->Find("delete") != -1)
                     {sikey("vk", VK_DELETE);}
                 }
             }
@@ -3872,12 +3875,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("End") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("end") != -1)
                     {sikey("vk", VK_END);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("End") != -1)
+                    if (f2->richTextBox1->Find("end") != -1)
                     {sikey("vk", VK_END);}
                 }
             }
@@ -3899,12 +3902,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("PageDown") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("pagedown") != -1)
                     {sikey("vk", VK_NEXT);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("PageDown") != -1)
+                    if (f2->richTextBox1->Find("pagedown") != -1)
                     {sikey("vk", VK_NEXT);}
                 }
             }
@@ -3920,18 +3923,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD7;
-                toggledkeystr = "Num7";
+                toggledkeystr = "num7";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num7") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num7") != -1)
                     {sikey("vk", VK_NUMPAD7);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num7") != -1)
+                    if (f2->richTextBox1->Find("num7") != -1)
                     {sikey("vk", VK_NUMPAD7);}
                 }
             }
@@ -3947,18 +3950,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD8;
-                toggledkeystr = "Num8";
+                toggledkeystr = "num8";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num8") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num8") != -1)
                     {sikey("vk", VK_NUMPAD8);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num8") != -1)
+                    if (f2->richTextBox1->Find("num8") != -1)
                     {sikey("vk", VK_NUMPAD8);}
                 }
             }
@@ -3974,18 +3977,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD9;
-                toggledkeystr = "Num9";
+                toggledkeystr = "num9";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num9") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num9") != -1)
                     {sikey("vk", VK_NUMPAD9);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num9") != -1)
+                    if (f2->richTextBox1->Find("num9") != -1)
                     {sikey("vk", VK_NUMPAD9);}
                 }
             }
@@ -4001,18 +4004,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_ADD;
-                toggledkeystr = "Num+";
+                toggledkeystr = "num+";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num+") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num+") != -1)
                     {sikey("vk", VK_ADD);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num+") != -1)
+                    if (f2->richTextBox1->Find("num+") != -1)
                     {sikey("vk", VK_ADD);}
                 }
             }
@@ -4028,18 +4031,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_CAPITAL;
-                toggledkeystr = "CapsLock";
+                toggledkeystr = "capslock";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("CapsLock") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("capslock") != -1)
                     {sikey("vk", VK_CAPITAL);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("CapsLock") != -1)
+                    if (f2->richTextBox1->Find("capslock") != -1)
                     {sikey("vk", VK_CAPITAL);}
                 }
             }
@@ -4059,12 +4062,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("A") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("a") != -1)
                     {sikey("vk", VK_A);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("A") != -1)
+                    if (f2->richTextBox1->Find("a") != -1)
                     {sikey("vk", VK_A);}
                 }
             }
@@ -4084,12 +4087,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("S") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("s") != -1)
                     {sikey("vk", VK_S);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("S") != -1)
+                    if (f2->richTextBox1->Find("s") != -1)
                     {sikey("vk", VK_S);}
                 }
             }
@@ -4109,12 +4112,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("D") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("d") != -1)
                     {sikey("vk", VK_D);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("D") != -1)
+                    if (f2->richTextBox1->Find("d") != -1)
                     {sikey("vk", VK_D);}
                 }
             }
@@ -4134,12 +4137,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("F") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("f") != -1)
                     {sikey("vk", VK_F);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("F") != -1)
+                    if (f2->richTextBox1->Find("f") != -1)
                     {sikey("vk", VK_F);}
                 }
             }
@@ -4159,12 +4162,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("G") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("g") != -1)
                     {sikey("vk", VK_G);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("G") != -1)
+                    if (f2->richTextBox1->Find("g") != -1)
                     {sikey("vk", VK_G);}
                 }
             }
@@ -4184,12 +4187,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("H") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("h") != -1)
                     {sikey("vk", VK_H);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("H") != -1)
+                    if (f2->richTextBox1->Find("h") != -1)
                     {sikey("vk", VK_H);}
                 }
             }
@@ -4209,12 +4212,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("J") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("j") != -1)
                     {sikey("vk", VK_J);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("J") != -1)
+                    if (f2->richTextBox1->Find("j") != -1)
                     {sikey("vk", VK_J);}
                 }
             }
@@ -4234,12 +4237,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("K") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("k") != -1)
                     {sikey("vk", VK_K);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("K") != -1)
+                    if (f2->richTextBox1->Find("k") != -1)
                     {sikey("vk", VK_K);}
                 }
             }
@@ -4259,12 +4262,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("L") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("l") != -1)
                     {sikey("vk", VK_L);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("L") != -1)
+                    if (f2->richTextBox1->Find("l") != -1)
                     {sikey("vk", VK_L);}
                 }
             }
@@ -4334,12 +4337,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Enter") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("enter") != -1)
                     {sikey("vk", VK_RETURN);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Enter") != -1)
+                    if (f2->richTextBox1->Find("enter") != -1)
                     {sikey("vk", VK_RETURN);}
                 }
             }
@@ -4353,18 +4356,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD4;
-                toggledkeystr = "Num4";
+                toggledkeystr = "num4";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num4") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num4") != -1)
                     {sikey("vk", VK_NUMPAD4);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num4") != -1)
+                    if (f2->richTextBox1->Find("num4") != -1)
                     {sikey("vk", VK_NUMPAD4);}
                 }
             }
@@ -4378,18 +4381,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD5;
-                toggledkeystr = "Num5";
+                toggledkeystr = "num5";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num5") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num5") != -1)
                     {sikey("vk", VK_NUMPAD5);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num5") != -1)
+                    if (f2->richTextBox1->Find("num5") != -1)
                     {sikey("vk", VK_NUMPAD5);}
                 }
             }
@@ -4403,18 +4406,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD6;
-                toggledkeystr = "Num6";
+                toggledkeystr = "num6";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num6") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num6") != -1)
                     {sikey("vk", VK_NUMPAD6);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num6") != -1)
+                    if (f2->richTextBox1->Find("num6") != -1)
                     {sikey("vk", VK_NUMPAD6);}
                 }
             }
@@ -4434,12 +4437,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("LShift") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("lshift") != -1)
                     {sikey("vk", VK_LSHIFT);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("LShift") != -1)
+                    if (f2->richTextBox1->Find("lshift") != -1)
                     {sikey("vk", VK_LSHIFT);}
                 }
             }
@@ -4459,12 +4462,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Z") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("z") != -1)
                     {sikey("vk", VK_Z);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Z") != -1)
+                    if (f2->richTextBox1->Find("z") != -1)
                     {sikey("vk", VK_Z);}
                 }
             }
@@ -4484,12 +4487,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("X") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("x") != -1)
                     {sikey("vk", VK_X);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("X") != -1)
+                    if (f2->richTextBox1->Find("x") != -1)
                     {sikey("vk", VK_X);}
                 }
             }
@@ -4509,12 +4512,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("C") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("c") != -1)
                     {sikey("vk", VK_C);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("C") != -1)
+                    if (f2->richTextBox1->Find("c") != -1)
                     {sikey("vk", VK_C);}
                 }
             }
@@ -4534,12 +4537,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("V") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("v") != -1)
                     {sikey("vk", VK_V);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("V") != -1)
+                    if (f2->richTextBox1->Find("v") != -1)
                     {sikey("vk", VK_V);}
                 }
             }
@@ -4559,12 +4562,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("B") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("b") != -1)
                     {sikey("vk", VK_B);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("B") != -1)
+                    if (f2->richTextBox1->Find("b") != -1)
                     {sikey("vk", VK_B);}
                 }
             }
@@ -4584,12 +4587,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("N") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("n") != -1)
                     {sikey("vk", VK_N);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("N") != -1)
+                    if (f2->richTextBox1->Find("n") != -1)
                     {sikey("vk", VK_N);}
                 }
             }
@@ -4609,12 +4612,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("M") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("m") != -1)
                     {sikey("vk", VK_M);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("M") != -1)
+                    if (f2->richTextBox1->Find("m") != -1)
                     {sikey("vk", VK_M);}
                 }
             }
@@ -4709,12 +4712,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("RShift") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("rshift") != -1)
                     {sikey("vk", VK_RSHIFT);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("RShift") != -1)
+                    if (f2->richTextBox1->Find("rshift") != -1)
                     {sikey("vk", VK_RSHIFT);}
                 }
             }
@@ -4734,12 +4737,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Up") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("up") != -1)
                     {sikey("vk", VK_UP);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Up") != -1)
+                    if (f2->richTextBox1->Find("up") != -1)
                     {sikey("vk", VK_UP);}
                 }
             }
@@ -4753,18 +4756,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD1;
-                toggledkeystr = "Num1";
+                toggledkeystr = "num1";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num1") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num1") != -1)
                     {sikey("vk", VK_NUMPAD1);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num1") != -1)
+                    if (f2->richTextBox1->Find("num1") != -1)
                     {sikey("vk", VK_NUMPAD1);}
                 }
             }
@@ -4778,18 +4781,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD2;
-                toggledkeystr = "Num2";
+                toggledkeystr = "num2";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num2") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num2") != -1)
                     {sikey("vk", VK_NUMPAD2);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num2") != -1)
+                    if (f2->richTextBox1->Find("num2") != -1)
                     {sikey("vk", VK_NUMPAD2);}
                 }
             }
@@ -4803,18 +4806,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD3;
-                toggledkeystr = "Num3";
+                toggledkeystr = "num3";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num3") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num3") != -1)
                     {sikey("vk", VK_NUMPAD3);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num3") != -1)
+                    if (f2->richTextBox1->Find("num3") != -1)
                     {sikey("vk", VK_NUMPAD3);}
                 }
             }
@@ -4849,12 +4852,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("LControl") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("lcontrol") != -1)
                     {sikey("vk", VK_LCONTROL);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("LControl") != -1)
+                    if (f2->richTextBox1->Find("lcontrol") != -1)
                     {sikey("vk", VK_LCONTROL);}
                 }
             }
@@ -4874,12 +4877,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("LWin") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("lwin") != -1)
                     {sikey("vk", VK_LWIN);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("LWin") != -1)
+                    if (f2->richTextBox1->Find("lwin") != -1)
                     {sikey("vk", VK_LWIN);}
                 }
             }
@@ -4899,12 +4902,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("LMenu") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("lmenu") != -1)
                     {sikey("vk", VK_LMENU);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("LMenu") != -1)
+                    if (f2->richTextBox1->Find("lmenu") != -1)
                     {sikey("vk", VK_LMENU);}
                 }
             }
@@ -4924,12 +4927,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Space") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("space") != -1)
                     {sikey("vk", VK_SPACE);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Space") != -1)
+                    if (f2->richTextBox1->Find("space") != -1)
                     {sikey("vk", VK_SPACE);}
                 }
             }
@@ -4949,12 +4952,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("RMenu") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("rmenu") != -1)
                     {sikey("vk", VK_RMENU);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("RMenu") != -1)
+                    if (f2->richTextBox1->Find("rmenu") != -1)
                     {sikey("vk", VK_RMENU);}
                 }
             }
@@ -5004,12 +5007,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("RControl") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("rcontrol") != -1)
                     {sikey("vk", VK_RCONTROL);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("RControl") != -1)
+                    if (f2->richTextBox1->Find("rcontrol") != -1)
                     {sikey("vk", VK_RCONTROL);}
                 }
             }
@@ -5029,12 +5032,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Left") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("left") != -1)
                     {sikey("vk", VK_LEFT);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Left") != -1)
+                    if (f2->richTextBox1->Find("left") != -1)
                     {sikey("vk", VK_LEFT);}
                 }
             }
@@ -5054,12 +5057,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Down") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("down") != -1)
                     {sikey("vk", VK_DOWN);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Down") != -1)
+                    if (f2->richTextBox1->Find("down") != -1)
                     {sikey("vk", VK_DOWN);}
                 }
             }
@@ -5079,12 +5082,12 @@ namespace OSKHighlights
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Right") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("right") != -1)
                     {sikey("vk", VK_RIGHT);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Right") != -1)
+                    if (f2->richTextBox1->Find("right") != -1)
                     {sikey("vk", VK_RIGHT);}
                 }
             }
@@ -5098,18 +5101,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_NUMPAD0;
-                toggledkeystr = "Num0";
+                toggledkeystr = "num0";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num0") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num0") != -1)
                     {sikey("vk", VK_NUMPAD0);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num0") != -1)
+                    if (f2->richTextBox1->Find("num0") != -1)
                     {sikey("vk", VK_NUMPAD0);}
                 }
             }
@@ -5123,18 +5126,18 @@ namespace OSKHighlights
             {
                 togglespamkey = true;
                 toggledkey = VK_DECIMAL;
-                toggledkeystr = "Num.";
+                toggledkeystr = "num.";
             }
             if (f2->checkBox2->Checked == true)
             {
                 if (f2->checkBox4->Checked == true)
                 {
-                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("Num.") != -1)
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("num.") != -1)
                     {sikey("vk", VK_DECIMAL);}
                 }
                 else if (f2->checkBox4->Checked == false)
                 {
-                    if (f2->richTextBox1->Find("Num.") != -1)
+                    if (f2->richTextBox1->Find("num.") != -1)
                     {sikey("vk", VK_DECIMAL);}
                 }
             }
