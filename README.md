@@ -6,6 +6,8 @@ just hold the key down and it'll send a keypress repeatedly for you. Don't wanna
 toggleable keys in the Spam Keys Filter list in the Settings and then click the "Toggle Spam Keys" checkbox and when you press those keys, you don't need to hold it or tap it
 repeatedly 'til your fingers are raw. You simply press the key once, and it'll spam it for you while you go and brew yourself a cup of coffee.
 
+<b>Be sure to run it as administrator!</b>
+
 ## Main Window
 <div align="center">
   <p>
