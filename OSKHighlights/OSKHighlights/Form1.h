@@ -2304,7 +2304,7 @@ private: System::Windows::Forms::Button^ button105;
         }
         #pragma endregion SaveSettings
 
-#pragma region Create Settings File If It Does Not Exist Already, otherwise load it
+        #pragma region Create Settings File If It Does Not Exist Already, otherwise load it
         if (settingsFileCreated == false)
         {
             GetFileAttributesW(L"Settings.rtf");//try to get the file attributes
@@ -2354,9 +2354,10 @@ private: System::Windows::Forms::Button^ button105;
                 #pragma endregion LoadSettings
             }
         }
-#pragma endregion Create Settings File If It Does Not Exist Already, otherwise load it
+        #pragma endregion Create Settings File If It Does Not Exist Already, otherwise load it
 
         #pragma region findwindow to send keypresses to
+        //window title/class finder
         wstring foregroundwindowtitle;
         f1hwnd = (HWND)this->Handle.ToInt32();
         f2hwnd = (HWND)f2->Handle.ToInt32();
@@ -2372,6 +2373,7 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
 
+        //using FindWindow function using the title/class textboxes
         wstring wndtitletb = marshal_as<wstring>(f2->textBox1->Text);
         wstring wndclasstb = marshal_as<wstring>(f2->textBox2->Text);
         windowtosendkeypressesto = FindWindowW(wndclasstb.c_str(), wndtitletb.c_str());
@@ -2381,6 +2383,7 @@ private: System::Windows::Forms::Button^ button105;
         f2->Location = Point(this->Location.X + this->Width/2 - f2->Width/2,this->Location.Y + this->Height/2 - f2->Height/2);
         #pragma endregion main form xy tracker for settings form
 
+        #pragma region OSKTopMost
         if (f2->checkBox3->Checked == true)
         {
             if (this->TopMost == false)
@@ -2391,6 +2394,7 @@ private: System::Windows::Forms::Button^ button105;
             if (this->TopMost == true)
             {this->TopMost = false;}
         }
+        #pragma endregion OSKTopMost
 
         #pragma region opacity trackbar for this form
         if (f2->trackBar1->Value == 1)
@@ -2415,14 +2419,17 @@ private: System::Windows::Forms::Button^ button105;
         {this->Opacity = 1.0;}
         #pragma endregion opacity trackbar for this form
 
-        if (GetAsyncKeyState(VK_CONTROL) < 0 && GetAsyncKeyState(VK_T) < 0)
+        #pragma region hotkeys
+        if (GetAsyncKeyState(VK_CONTROL) < 0 && GetAsyncKeyState(VK_T) < 0)//hotkeys to enable/disable toggleable keys...toggle toggleable keys
         {
             if (f2->checkBox1->Checked == false)
             {f2->checkBox1->Checked = true;}
             else if (f2->checkBox1->Checked == true)
             {f2->checkBox1->Checked = false;}
         }
+        #pragma endregion hotkeys
 
+        #pragma region keys listener and spammer
         if (togglespamkey == true)
         {
             if (toggledkey != 0)
@@ -5144,6 +5151,7 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_DECIMAL) >= 0)
         {button97->BackColor = Color::Black;}
+        #pragma endregion keys listener and spammer
     }
     private: System::Void button105_Click(System::Object^ sender, System::EventArgs^ e)//settings button
     {f2->Show();}
