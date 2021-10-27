@@ -19,3 +19,9 @@ repeatedly 'til your fingers are raw. You simply press the key once, and it'll s
     <img src="https://github.com/Rixef/OSKHighlights/blob/main/.github/OSKHSettings.png" width="545" alt="OSKHSettings" />
   </p>
 </div>
+
+## Troubleshooting and Additional Information
+OSKHighlights was compiled with Visual Studio 2019 using C++17 language and .NET Framework 4.7.2
+
+If you're getting an error that says something along the lines of a .DLL file missing, then make sure you have the Microsoft Visual C++ Redistributable packages for 2015-2022 installed. If you don't know how to check or you're unsure, then you can download and install them from the official Microsoft site here: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-160
+Get the x86 and x64 ones. No need to worry about the ARM one.
