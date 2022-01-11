@@ -1,6 +1,7 @@
 #pragma once
 #include "Functions.h"
 #include "Form2.h"
+#include "Form3.h"
 
 namespace OSKHighlights
 {
@@ -13,10 +14,14 @@ namespace OSKHighlights
 
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
+        SpeechRecognitionEngine^ speechRecognitionEngine = gcnew SpeechRecognitionEngine();
 	public:
 		Form1(void)
 		{
 			InitializeComponent();
+            /*formbackcolor = Color::Black;
+            formforecolor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(255)), static_cast<Int32>(static_cast<Byte>(128)),static_cast<Int32>(static_cast<Byte>(0)));
+            buttondownbackcolor = Color::Gray;*/
 		}
 
 	protected:
@@ -27,6 +32,10 @@ namespace OSKHighlights
 		}
 	private: System::Windows::Forms::Button^ button1;
     public: Form2^ f2 = gcnew Form2();
+    public: Form3^ f3 = gcnew Form3();
+    /*public: Color^ formbackcolor = Color::Black;
+    public: Color^ formforecolor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(255)), static_cast<Int32>(static_cast<Byte>(128)), static_cast<Int32>(static_cast<Byte>(0)));
+    public: Color^ buttondownbackcolor = Color::Gray;*/
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
@@ -132,12 +141,14 @@ namespace OSKHighlights
 	private: System::Windows::Forms::Button^ button104;
     private: System::Windows::Forms::Timer^ timer1;
 private: System::Windows::Forms::Button^ button105;
+private: System::Windows::Forms::Label^ label1;
     private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
             this->components = (gcnew System::ComponentModel::Container());
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
             this->button1 = (gcnew System::Windows::Forms::Button());
             this->button2 = (gcnew System::Windows::Forms::Button());
             this->button3 = (gcnew System::Windows::Forms::Button());
@@ -244,11 +255,12 @@ private: System::Windows::Forms::Button^ button105;
             this->button104 = (gcnew System::Windows::Forms::Button());
             this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
             this->button105 = (gcnew System::Windows::Forms::Button());
+            this->label1 = (gcnew System::Windows::Forms::Label());
             this->SuspendLayout();
             // 
             // button1
             // 
-            this->button1->BackColor = System::Drawing::Color::Black;
+            this->button1->BackColor = System::Drawing::Color::Transparent;
             this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -266,7 +278,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button2
             // 
-            this->button2->BackColor = System::Drawing::Color::Black;
+            this->button2->BackColor = System::Drawing::Color::Transparent;
             this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button2->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -279,12 +291,12 @@ private: System::Windows::Forms::Button^ button105;
             this->button2->Name = L"button2";
             this->button2->Size = System::Drawing::Size(45, 45);
             this->button2->TabIndex = 1;
-            this->button2->Text = L"f1";
+            this->button2->Text = L"F1";
             this->button2->UseVisualStyleBackColor = false;
             // 
             // button3
             // 
-            this->button3->BackColor = System::Drawing::Color::Black;
+            this->button3->BackColor = System::Drawing::Color::Transparent;
             this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button3->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -292,17 +304,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button3->Location = System::Drawing::Point(120, 0);
+            this->button3->Location = System::Drawing::Point(128, 0);
             this->button3->Margin = System::Windows::Forms::Padding(0);
             this->button3->Name = L"button3";
             this->button3->Size = System::Drawing::Size(45, 45);
             this->button3->TabIndex = 2;
-            this->button3->Text = L"f2";
+            this->button3->Text = L"F2";
             this->button3->UseVisualStyleBackColor = false;
             // 
             // button4
             // 
-            this->button4->BackColor = System::Drawing::Color::Black;
+            this->button4->BackColor = System::Drawing::Color::Transparent;
             this->button4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button4->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -310,17 +322,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button4->Location = System::Drawing::Point(157, 0);
+            this->button4->Location = System::Drawing::Point(173, 0);
             this->button4->Margin = System::Windows::Forms::Padding(0);
             this->button4->Name = L"button4";
             this->button4->Size = System::Drawing::Size(45, 45);
             this->button4->TabIndex = 3;
-            this->button4->Text = L"f3";
+            this->button4->Text = L"F3";
             this->button4->UseVisualStyleBackColor = false;
             // 
             // button5
             // 
-            this->button5->BackColor = System::Drawing::Color::Black;
+            this->button5->BackColor = System::Drawing::Color::Transparent;
             this->button5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button5->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -328,17 +340,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button5->Location = System::Drawing::Point(194, 0);
+            this->button5->Location = System::Drawing::Point(218, 0);
             this->button5->Margin = System::Windows::Forms::Padding(0);
             this->button5->Name = L"button5";
             this->button5->Size = System::Drawing::Size(45, 45);
             this->button5->TabIndex = 4;
-            this->button5->Text = L"f4";
+            this->button5->Text = L"F4";
             this->button5->UseVisualStyleBackColor = false;
             // 
             // button6
             // 
-            this->button6->BackColor = System::Drawing::Color::Black;
+            this->button6->BackColor = System::Drawing::Color::Transparent;
             this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button6->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -346,17 +358,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button6->Location = System::Drawing::Point(262, 0);
+            this->button6->Location = System::Drawing::Point(286, 0);
             this->button6->Margin = System::Windows::Forms::Padding(0);
             this->button6->Name = L"button6";
             this->button6->Size = System::Drawing::Size(45, 45);
             this->button6->TabIndex = 5;
-            this->button6->Text = L"f5";
+            this->button6->Text = L"F5";
             this->button6->UseVisualStyleBackColor = false;
             // 
             // button7
             // 
-            this->button7->BackColor = System::Drawing::Color::Black;
+            this->button7->BackColor = System::Drawing::Color::Transparent;
             this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button7->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -364,17 +376,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button7->Location = System::Drawing::Point(299, 0);
+            this->button7->Location = System::Drawing::Point(331, 0);
             this->button7->Margin = System::Windows::Forms::Padding(0);
             this->button7->Name = L"button7";
             this->button7->Size = System::Drawing::Size(45, 45);
             this->button7->TabIndex = 6;
-            this->button7->Text = L"f6";
+            this->button7->Text = L"F6";
             this->button7->UseVisualStyleBackColor = false;
             // 
             // button8
             // 
-            this->button8->BackColor = System::Drawing::Color::Black;
+            this->button8->BackColor = System::Drawing::Color::Transparent;
             this->button8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button8->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -382,17 +394,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button8->Location = System::Drawing::Point(336, 0);
+            this->button8->Location = System::Drawing::Point(376, 0);
             this->button8->Margin = System::Windows::Forms::Padding(0);
             this->button8->Name = L"button8";
             this->button8->Size = System::Drawing::Size(45, 45);
             this->button8->TabIndex = 7;
-            this->button8->Text = L"f7";
+            this->button8->Text = L"F7";
             this->button8->UseVisualStyleBackColor = false;
             // 
             // button9
             // 
-            this->button9->BackColor = System::Drawing::Color::Black;
+            this->button9->BackColor = System::Drawing::Color::Transparent;
             this->button9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button9->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -400,17 +412,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button9->Location = System::Drawing::Point(373, 0);
+            this->button9->Location = System::Drawing::Point(421, 0);
             this->button9->Margin = System::Windows::Forms::Padding(0);
             this->button9->Name = L"button9";
             this->button9->Size = System::Drawing::Size(45, 45);
             this->button9->TabIndex = 8;
-            this->button9->Text = L"f8";
+            this->button9->Text = L"F8";
             this->button9->UseVisualStyleBackColor = false;
             // 
             // button10
             // 
-            this->button10->BackColor = System::Drawing::Color::Black;
+            this->button10->BackColor = System::Drawing::Color::Transparent;
             this->button10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button10->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -418,17 +430,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button10->Location = System::Drawing::Point(441, 0);
+            this->button10->Location = System::Drawing::Point(489, 0);
             this->button10->Margin = System::Windows::Forms::Padding(0);
             this->button10->Name = L"button10";
             this->button10->Size = System::Drawing::Size(45, 45);
             this->button10->TabIndex = 9;
-            this->button10->Text = L"f9";
+            this->button10->Text = L"F9";
             this->button10->UseVisualStyleBackColor = false;
             // 
             // button11
             // 
-            this->button11->BackColor = System::Drawing::Color::Black;
+            this->button11->BackColor = System::Drawing::Color::Transparent;
             this->button11->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button11->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -436,17 +448,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button11->Location = System::Drawing::Point(478, 0);
+            this->button11->Location = System::Drawing::Point(534, 0);
             this->button11->Margin = System::Windows::Forms::Padding(0);
             this->button11->Name = L"button11";
             this->button11->Size = System::Drawing::Size(45, 45);
             this->button11->TabIndex = 10;
-            this->button11->Text = L"f10";
+            this->button11->Text = L"F10";
             this->button11->UseVisualStyleBackColor = false;
             // 
             // button12
             // 
-            this->button12->BackColor = System::Drawing::Color::Black;
+            this->button12->BackColor = System::Drawing::Color::Transparent;
             this->button12->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button12->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button12->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -454,17 +466,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button12->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button12->Location = System::Drawing::Point(515, 0);
+            this->button12->Location = System::Drawing::Point(579, 0);
             this->button12->Margin = System::Windows::Forms::Padding(0);
             this->button12->Name = L"button12";
             this->button12->Size = System::Drawing::Size(45, 45);
             this->button12->TabIndex = 11;
-            this->button12->Text = L"f11";
+            this->button12->Text = L"F11";
             this->button12->UseVisualStyleBackColor = false;
             // 
             // button13
             // 
-            this->button13->BackColor = System::Drawing::Color::Black;
+            this->button13->BackColor = System::Drawing::Color::Transparent;
             this->button13->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button13->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button13->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -472,71 +484,71 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button13->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button13->Location = System::Drawing::Point(552, 0);
+            this->button13->Location = System::Drawing::Point(624, 0);
             this->button13->Margin = System::Windows::Forms::Padding(0);
             this->button13->Name = L"button13";
             this->button13->Size = System::Drawing::Size(45, 45);
             this->button13->TabIndex = 12;
-            this->button13->Text = L"f12";
+            this->button13->Text = L"F12";
             this->button13->UseVisualStyleBackColor = false;
             // 
             // button14
             // 
-            this->button14->BackColor = System::Drawing::Color::Black;
+            this->button14->BackColor = System::Drawing::Color::Transparent;
             this->button14->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button14->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button14->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button14->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button14->Location = System::Drawing::Point(609, 0);
+            this->button14->Location = System::Drawing::Point(680, 0);
             this->button14->Margin = System::Windows::Forms::Padding(0);
             this->button14->Name = L"button14";
             this->button14->Size = System::Drawing::Size(45, 45);
             this->button14->TabIndex = 13;
-            this->button14->Text = L"PrintScreen";
+            this->button14->Text = L"Print Screen";
             this->button14->UseVisualStyleBackColor = false;
             // 
             // button15
             // 
-            this->button15->BackColor = System::Drawing::Color::Black;
+            this->button15->BackColor = System::Drawing::Color::Transparent;
             this->button15->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button15->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button15->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button15->Location = System::Drawing::Point(646, 0);
+            this->button15->Location = System::Drawing::Point(725, 0);
             this->button15->Margin = System::Windows::Forms::Padding(0);
             this->button15->Name = L"button15";
             this->button15->Size = System::Drawing::Size(45, 45);
             this->button15->TabIndex = 14;
-            this->button15->Text = L"Scrolllock";
+            this->button15->Text = L"Scroll Lock";
             this->button15->UseVisualStyleBackColor = false;
             // 
             // button16
             // 
-            this->button16->BackColor = System::Drawing::Color::Black;
+            this->button16->BackColor = System::Drawing::Color::Transparent;
             this->button16->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button16->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button16->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button16->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button16->Location = System::Drawing::Point(683, 0);
+            this->button16->Location = System::Drawing::Point(770, 0);
             this->button16->Margin = System::Windows::Forms::Padding(0);
             this->button16->Name = L"button16";
             this->button16->Size = System::Drawing::Size(45, 45);
             this->button16->TabIndex = 15;
-            this->button16->Text = L"PauseBreak";
+            this->button16->Text = L"Pause Break";
             this->button16->UseVisualStyleBackColor = false;
             // 
             // button17
             // 
-            this->button17->BackColor = System::Drawing::Color::Black;
+            this->button17->BackColor = System::Drawing::Color::Transparent;
             this->button17->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button17->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button17->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -544,7 +556,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button17->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button17->Location = System::Drawing::Point(44, 52);
+            this->button17->Location = System::Drawing::Point(45, 52);
             this->button17->Margin = System::Windows::Forms::Padding(0);
             this->button17->Name = L"button17";
             this->button17->Size = System::Drawing::Size(45, 45);
@@ -554,7 +566,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button18
             // 
-            this->button18->BackColor = System::Drawing::Color::Black;
+            this->button18->BackColor = System::Drawing::Color::Transparent;
             this->button18->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button18->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button18->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -562,7 +574,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button18->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button18->Location = System::Drawing::Point(83, 52);
+            this->button18->Location = System::Drawing::Point(90, 52);
             this->button18->Margin = System::Windows::Forms::Padding(0);
             this->button18->Name = L"button18";
             this->button18->Size = System::Drawing::Size(45, 45);
@@ -572,7 +584,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button19
             // 
-            this->button19->BackColor = System::Drawing::Color::Black;
+            this->button19->BackColor = System::Drawing::Color::Transparent;
             this->button19->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button19->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button19->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -580,7 +592,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button19->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button19->Location = System::Drawing::Point(122, 52);
+            this->button19->Location = System::Drawing::Point(135, 52);
             this->button19->Margin = System::Windows::Forms::Padding(0);
             this->button19->Name = L"button19";
             this->button19->Size = System::Drawing::Size(45, 45);
@@ -590,7 +602,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button20
             // 
-            this->button20->BackColor = System::Drawing::Color::Black;
+            this->button20->BackColor = System::Drawing::Color::Transparent;
             this->button20->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button20->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button20->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -598,7 +610,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button20->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button20->Location = System::Drawing::Point(161, 52);
+            this->button20->Location = System::Drawing::Point(180, 52);
             this->button20->Margin = System::Windows::Forms::Padding(0);
             this->button20->Name = L"button20";
             this->button20->Size = System::Drawing::Size(45, 45);
@@ -608,7 +620,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button21
             // 
-            this->button21->BackColor = System::Drawing::Color::Black;
+            this->button21->BackColor = System::Drawing::Color::Transparent;
             this->button21->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button21->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button21->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -616,7 +628,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button21->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button21->Location = System::Drawing::Point(201, 52);
+            this->button21->Location = System::Drawing::Point(225, 52);
             this->button21->Margin = System::Windows::Forms::Padding(0);
             this->button21->Name = L"button21";
             this->button21->Size = System::Drawing::Size(45, 45);
@@ -626,7 +638,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button22
             // 
-            this->button22->BackColor = System::Drawing::Color::Black;
+            this->button22->BackColor = System::Drawing::Color::Transparent;
             this->button22->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button22->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button22->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -634,7 +646,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button22->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button22->Location = System::Drawing::Point(241, 52);
+            this->button22->Location = System::Drawing::Point(270, 52);
             this->button22->Margin = System::Windows::Forms::Padding(0);
             this->button22->Name = L"button22";
             this->button22->Size = System::Drawing::Size(45, 45);
@@ -644,7 +656,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button23
             // 
-            this->button23->BackColor = System::Drawing::Color::Black;
+            this->button23->BackColor = System::Drawing::Color::Transparent;
             this->button23->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button23->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button23->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -652,7 +664,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button23->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button23->Location = System::Drawing::Point(282, 52);
+            this->button23->Location = System::Drawing::Point(315, 52);
             this->button23->Margin = System::Windows::Forms::Padding(0);
             this->button23->Name = L"button23";
             this->button23->Size = System::Drawing::Size(45, 45);
@@ -662,7 +674,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button24
             // 
-            this->button24->BackColor = System::Drawing::Color::Black;
+            this->button24->BackColor = System::Drawing::Color::Transparent;
             this->button24->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button24->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button24->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -670,7 +682,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button24->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button24->Location = System::Drawing::Point(322, 52);
+            this->button24->Location = System::Drawing::Point(360, 52);
             this->button24->Margin = System::Windows::Forms::Padding(0);
             this->button24->Name = L"button24";
             this->button24->Size = System::Drawing::Size(45, 45);
@@ -680,7 +692,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button25
             // 
-            this->button25->BackColor = System::Drawing::Color::Black;
+            this->button25->BackColor = System::Drawing::Color::Transparent;
             this->button25->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button25->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button25->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -688,7 +700,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button25->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button25->Location = System::Drawing::Point(360, 52);
+            this->button25->Location = System::Drawing::Point(405, 52);
             this->button25->Margin = System::Windows::Forms::Padding(0);
             this->button25->Name = L"button25";
             this->button25->Size = System::Drawing::Size(45, 45);
@@ -698,7 +710,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button26
             // 
-            this->button26->BackColor = System::Drawing::Color::Black;
+            this->button26->BackColor = System::Drawing::Color::Transparent;
             this->button26->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button26->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button26->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -706,7 +718,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button26->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button26->Location = System::Drawing::Point(398, 52);
+            this->button26->Location = System::Drawing::Point(450, 52);
             this->button26->Margin = System::Windows::Forms::Padding(0);
             this->button26->Name = L"button26";
             this->button26->Size = System::Drawing::Size(45, 45);
@@ -716,7 +728,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button27
             // 
-            this->button27->BackColor = System::Drawing::Color::Black;
+            this->button27->BackColor = System::Drawing::Color::Transparent;
             this->button27->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button27->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button27->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -734,7 +746,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button28
             // 
-            this->button28->BackColor = System::Drawing::Color::Black;
+            this->button28->BackColor = System::Drawing::Color::Transparent;
             this->button28->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button28->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button28->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -742,7 +754,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button28->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button28->Location = System::Drawing::Point(439, 52);
+            this->button28->Location = System::Drawing::Point(495, 52);
             this->button28->Margin = System::Windows::Forms::Padding(0);
             this->button28->Name = L"button28";
             this->button28->Size = System::Drawing::Size(45, 45);
@@ -752,7 +764,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button29
             // 
-            this->button29->BackColor = System::Drawing::Color::Black;
+            this->button29->BackColor = System::Drawing::Color::Transparent;
             this->button29->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button29->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button29->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -760,7 +772,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button29->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button29->Location = System::Drawing::Point(478, 52);
+            this->button29->Location = System::Drawing::Point(540, 52);
             this->button29->Margin = System::Windows::Forms::Padding(0);
             this->button29->Name = L"button29";
             this->button29->Size = System::Drawing::Size(45, 45);
@@ -770,7 +782,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button30
             // 
-            this->button30->BackColor = System::Drawing::Color::Black;
+            this->button30->BackColor = System::Drawing::Color::Transparent;
             this->button30->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button30->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button30->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -778,17 +790,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button30->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button30->Location = System::Drawing::Point(519, 52);
+            this->button30->Location = System::Drawing::Point(585, 52);
             this->button30->Margin = System::Windows::Forms::Padding(0);
             this->button30->Name = L"button30";
-            this->button30->Size = System::Drawing::Size(78, 45);
+            this->button30->Size = System::Drawing::Size(84, 45);
             this->button30->TabIndex = 29;
             this->button30->Text = L"<---------";
             this->button30->UseVisualStyleBackColor = false;
             // 
             // button31
             // 
-            this->button31->BackColor = System::Drawing::Color::Black;
+            this->button31->BackColor = System::Drawing::Color::Transparent;
             this->button31->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button31->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button31->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -796,7 +808,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button31->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button31->Location = System::Drawing::Point(0, 91);
+            this->button31->Location = System::Drawing::Point(0, 97);
             this->button31->Margin = System::Windows::Forms::Padding(0);
             this->button31->Name = L"button31";
             this->button31->Size = System::Drawing::Size(64, 45);
@@ -806,7 +818,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button32
             // 
-            this->button32->BackColor = System::Drawing::Color::Black;
+            this->button32->BackColor = System::Drawing::Color::Transparent;
             this->button32->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button32->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button32->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -814,7 +826,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button32->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button32->Location = System::Drawing::Point(0, 130);
+            this->button32->Location = System::Drawing::Point(0, 142);
             this->button32->Margin = System::Windows::Forms::Padding(0);
             this->button32->Name = L"button32";
             this->button32->Size = System::Drawing::Size(74, 45);
@@ -824,7 +836,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button33
             // 
-            this->button33->BackColor = System::Drawing::Color::Black;
+            this->button33->BackColor = System::Drawing::Color::Transparent;
             this->button33->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button33->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button33->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -832,7 +844,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button33->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button33->Location = System::Drawing::Point(0, 169);
+            this->button33->Location = System::Drawing::Point(0, 187);
             this->button33->Margin = System::Windows::Forms::Padding(0);
             this->button33->Name = L"button33";
             this->button33->Size = System::Drawing::Size(96, 45);
@@ -842,7 +854,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button34
             // 
-            this->button34->BackColor = System::Drawing::Color::Black;
+            this->button34->BackColor = System::Drawing::Color::Transparent;
             this->button34->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button34->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button34->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -850,17 +862,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button34->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button34->Location = System::Drawing::Point(0, 210);
+            this->button34->Location = System::Drawing::Point(0, 232);
             this->button34->Margin = System::Windows::Forms::Padding(0);
             this->button34->Name = L"button34";
-            this->button34->Size = System::Drawing::Size(64, 45);
+            this->button34->Size = System::Drawing::Size(67, 45);
             this->button34->TabIndex = 33;
             this->button34->Text = L"Ctrl";
             this->button34->UseVisualStyleBackColor = false;
             // 
             // button35
             // 
-            this->button35->BackColor = System::Drawing::Color::Black;
+            this->button35->BackColor = System::Drawing::Color::Transparent;
             this->button35->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button35->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button35->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -868,16 +880,16 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button35->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button35->Location = System::Drawing::Point(151, 210);
+            this->button35->Location = System::Drawing::Point(177, 232);
             this->button35->Margin = System::Windows::Forms::Padding(0);
             this->button35->Name = L"button35";
-            this->button35->Size = System::Drawing::Size(244, 45);
+            this->button35->Size = System::Drawing::Size(260, 45);
             this->button35->TabIndex = 34;
             this->button35->UseVisualStyleBackColor = false;
             // 
             // button36
             // 
-            this->button36->BackColor = System::Drawing::Color::Black;
+            this->button36->BackColor = System::Drawing::Color::Transparent;
             this->button36->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button36->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button36->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -885,7 +897,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button36->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button36->Location = System::Drawing::Point(60, 91);
+            this->button36->Location = System::Drawing::Point(64, 97);
             this->button36->Margin = System::Windows::Forms::Padding(0);
             this->button36->Name = L"button36";
             this->button36->Size = System::Drawing::Size(45, 45);
@@ -895,7 +907,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button37
             // 
-            this->button37->BackColor = System::Drawing::Color::Black;
+            this->button37->BackColor = System::Drawing::Color::Transparent;
             this->button37->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button37->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button37->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -903,7 +915,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button37->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button37->Location = System::Drawing::Point(101, 91);
+            this->button37->Location = System::Drawing::Point(109, 97);
             this->button37->Margin = System::Windows::Forms::Padding(0);
             this->button37->Name = L"button37";
             this->button37->Size = System::Drawing::Size(45, 45);
@@ -913,7 +925,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button38
             // 
-            this->button38->BackColor = System::Drawing::Color::Black;
+            this->button38->BackColor = System::Drawing::Color::Transparent;
             this->button38->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button38->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button38->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -921,7 +933,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button38->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button38->Location = System::Drawing::Point(141, 91);
+            this->button38->Location = System::Drawing::Point(154, 97);
             this->button38->Margin = System::Windows::Forms::Padding(0);
             this->button38->Name = L"button38";
             this->button38->Size = System::Drawing::Size(45, 45);
@@ -931,7 +943,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button39
             // 
-            this->button39->BackColor = System::Drawing::Color::Black;
+            this->button39->BackColor = System::Drawing::Color::Transparent;
             this->button39->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button39->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button39->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -939,7 +951,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button39->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button39->Location = System::Drawing::Point(180, 91);
+            this->button39->Location = System::Drawing::Point(199, 97);
             this->button39->Margin = System::Windows::Forms::Padding(0);
             this->button39->Name = L"button39";
             this->button39->Size = System::Drawing::Size(45, 45);
@@ -949,7 +961,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button40
             // 
-            this->button40->BackColor = System::Drawing::Color::Black;
+            this->button40->BackColor = System::Drawing::Color::Transparent;
             this->button40->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button40->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button40->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -957,7 +969,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button40->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button40->Location = System::Drawing::Point(219, 91);
+            this->button40->Location = System::Drawing::Point(244, 97);
             this->button40->Margin = System::Windows::Forms::Padding(0);
             this->button40->Name = L"button40";
             this->button40->Size = System::Drawing::Size(45, 45);
@@ -967,7 +979,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button41
             // 
-            this->button41->BackColor = System::Drawing::Color::Black;
+            this->button41->BackColor = System::Drawing::Color::Transparent;
             this->button41->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button41->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button41->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -975,7 +987,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button41->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button41->Location = System::Drawing::Point(259, 91);
+            this->button41->Location = System::Drawing::Point(289, 97);
             this->button41->Margin = System::Windows::Forms::Padding(0);
             this->button41->Name = L"button41";
             this->button41->Size = System::Drawing::Size(45, 45);
@@ -985,7 +997,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button42
             // 
-            this->button42->BackColor = System::Drawing::Color::Black;
+            this->button42->BackColor = System::Drawing::Color::Transparent;
             this->button42->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button42->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button42->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -993,7 +1005,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button42->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button42->Location = System::Drawing::Point(299, 91);
+            this->button42->Location = System::Drawing::Point(334, 97);
             this->button42->Margin = System::Windows::Forms::Padding(0);
             this->button42->Name = L"button42";
             this->button42->Size = System::Drawing::Size(45, 45);
@@ -1003,7 +1015,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button43
             // 
-            this->button43->BackColor = System::Drawing::Color::Black;
+            this->button43->BackColor = System::Drawing::Color::Transparent;
             this->button43->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button43->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button43->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1011,7 +1023,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button43->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button43->Location = System::Drawing::Point(339, 91);
+            this->button43->Location = System::Drawing::Point(379, 97);
             this->button43->Margin = System::Windows::Forms::Padding(0);
             this->button43->Name = L"button43";
             this->button43->Size = System::Drawing::Size(45, 45);
@@ -1021,7 +1033,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button44
             // 
-            this->button44->BackColor = System::Drawing::Color::Black;
+            this->button44->BackColor = System::Drawing::Color::Transparent;
             this->button44->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button44->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button44->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1029,7 +1041,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button44->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button44->Location = System::Drawing::Point(379, 91);
+            this->button44->Location = System::Drawing::Point(424, 97);
             this->button44->Margin = System::Windows::Forms::Padding(0);
             this->button44->Name = L"button44";
             this->button44->Size = System::Drawing::Size(45, 45);
@@ -1039,7 +1051,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button45
             // 
-            this->button45->BackColor = System::Drawing::Color::Black;
+            this->button45->BackColor = System::Drawing::Color::Transparent;
             this->button45->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button45->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button45->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1047,7 +1059,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button45->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button45->Location = System::Drawing::Point(419, 91);
+            this->button45->Location = System::Drawing::Point(469, 97);
             this->button45->Margin = System::Windows::Forms::Padding(0);
             this->button45->Name = L"button45";
             this->button45->Size = System::Drawing::Size(45, 45);
@@ -1057,7 +1069,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button46
             // 
-            this->button46->BackColor = System::Drawing::Color::Black;
+            this->button46->BackColor = System::Drawing::Color::Transparent;
             this->button46->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button46->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button46->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1065,7 +1077,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button46->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button46->Location = System::Drawing::Point(430, 130);
+            this->button46->Location = System::Drawing::Point(479, 142);
             this->button46->Margin = System::Windows::Forms::Padding(0);
             this->button46->Name = L"button46";
             this->button46->Size = System::Drawing::Size(45, 45);
@@ -1075,7 +1087,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button47
             // 
-            this->button47->BackColor = System::Drawing::Color::Black;
+            this->button47->BackColor = System::Drawing::Color::Transparent;
             this->button47->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button47->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button47->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1083,7 +1095,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button47->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button47->Location = System::Drawing::Point(390, 130);
+            this->button47->Location = System::Drawing::Point(434, 142);
             this->button47->Margin = System::Windows::Forms::Padding(0);
             this->button47->Name = L"button47";
             this->button47->Size = System::Drawing::Size(45, 45);
@@ -1093,7 +1105,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button48
             // 
-            this->button48->BackColor = System::Drawing::Color::Black;
+            this->button48->BackColor = System::Drawing::Color::Transparent;
             this->button48->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button48->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button48->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1101,7 +1113,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button48->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button48->Location = System::Drawing::Point(350, 130);
+            this->button48->Location = System::Drawing::Point(389, 142);
             this->button48->Margin = System::Windows::Forms::Padding(0);
             this->button48->Name = L"button48";
             this->button48->Size = System::Drawing::Size(45, 45);
@@ -1111,7 +1123,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button49
             // 
-            this->button49->BackColor = System::Drawing::Color::Black;
+            this->button49->BackColor = System::Drawing::Color::Transparent;
             this->button49->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button49->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button49->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1119,7 +1131,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button49->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button49->Location = System::Drawing::Point(310, 130);
+            this->button49->Location = System::Drawing::Point(344, 142);
             this->button49->Margin = System::Windows::Forms::Padding(0);
             this->button49->Name = L"button49";
             this->button49->Size = System::Drawing::Size(45, 45);
@@ -1129,7 +1141,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button50
             // 
-            this->button50->BackColor = System::Drawing::Color::Black;
+            this->button50->BackColor = System::Drawing::Color::Transparent;
             this->button50->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button50->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button50->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1137,7 +1149,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button50->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button50->Location = System::Drawing::Point(270, 130);
+            this->button50->Location = System::Drawing::Point(299, 142);
             this->button50->Margin = System::Windows::Forms::Padding(0);
             this->button50->Name = L"button50";
             this->button50->Size = System::Drawing::Size(45, 45);
@@ -1147,7 +1159,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button51
             // 
-            this->button51->BackColor = System::Drawing::Color::Black;
+            this->button51->BackColor = System::Drawing::Color::Transparent;
             this->button51->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button51->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button51->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1155,7 +1167,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button51->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button51->Location = System::Drawing::Point(230, 130);
+            this->button51->Location = System::Drawing::Point(254, 142);
             this->button51->Margin = System::Windows::Forms::Padding(0);
             this->button51->Name = L"button51";
             this->button51->Size = System::Drawing::Size(45, 45);
@@ -1165,7 +1177,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button52
             // 
-            this->button52->BackColor = System::Drawing::Color::Black;
+            this->button52->BackColor = System::Drawing::Color::Transparent;
             this->button52->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button52->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button52->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1173,7 +1185,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button52->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button52->Location = System::Drawing::Point(191, 130);
+            this->button52->Location = System::Drawing::Point(209, 142);
             this->button52->Margin = System::Windows::Forms::Padding(0);
             this->button52->Name = L"button52";
             this->button52->Size = System::Drawing::Size(45, 45);
@@ -1183,7 +1195,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button53
             // 
-            this->button53->BackColor = System::Drawing::Color::Black;
+            this->button53->BackColor = System::Drawing::Color::Transparent;
             this->button53->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button53->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button53->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1191,7 +1203,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button53->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button53->Location = System::Drawing::Point(152, 130);
+            this->button53->Location = System::Drawing::Point(164, 142);
             this->button53->Margin = System::Windows::Forms::Padding(0);
             this->button53->Name = L"button53";
             this->button53->Size = System::Drawing::Size(45, 45);
@@ -1201,7 +1213,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button54
             // 
-            this->button54->BackColor = System::Drawing::Color::Black;
+            this->button54->BackColor = System::Drawing::Color::Transparent;
             this->button54->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button54->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button54->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1209,7 +1221,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button54->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button54->Location = System::Drawing::Point(112, 130);
+            this->button54->Location = System::Drawing::Point(119, 142);
             this->button54->Margin = System::Windows::Forms::Padding(0);
             this->button54->Name = L"button54";
             this->button54->Size = System::Drawing::Size(45, 45);
@@ -1219,7 +1231,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button55
             // 
-            this->button55->BackColor = System::Drawing::Color::Black;
+            this->button55->BackColor = System::Drawing::Color::Transparent;
             this->button55->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button55->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button55->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1227,7 +1239,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button55->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button55->Location = System::Drawing::Point(71, 130);
+            this->button55->Location = System::Drawing::Point(74, 142);
             this->button55->Margin = System::Windows::Forms::Padding(0);
             this->button55->Name = L"button55";
             this->button55->Size = System::Drawing::Size(45, 45);
@@ -1237,7 +1249,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button56
             // 
-            this->button56->BackColor = System::Drawing::Color::Black;
+            this->button56->BackColor = System::Drawing::Color::Transparent;
             this->button56->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button56->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button56->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1245,7 +1257,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button56->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button56->Location = System::Drawing::Point(470, 130);
+            this->button56->Location = System::Drawing::Point(524, 142);
             this->button56->Margin = System::Windows::Forms::Padding(0);
             this->button56->Name = L"button56";
             this->button56->Size = System::Drawing::Size(45, 45);
@@ -1255,7 +1267,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button57
             // 
-            this->button57->BackColor = System::Drawing::Color::Black;
+            this->button57->BackColor = System::Drawing::Color::Transparent;
             this->button57->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button57->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button57->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1263,17 +1275,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button57->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button57->Location = System::Drawing::Point(511, 130);
+            this->button57->Location = System::Drawing::Point(569, 142);
             this->button57->Margin = System::Windows::Forms::Padding(0);
             this->button57->Name = L"button57";
-            this->button57->Size = System::Drawing::Size(86, 45);
+            this->button57->Size = System::Drawing::Size(100, 45);
             this->button57->TabIndex = 56;
             this->button57->Text = L"Enter";
             this->button57->UseVisualStyleBackColor = false;
             // 
             // button58
             // 
-            this->button58->BackColor = System::Drawing::Color::Black;
+            this->button58->BackColor = System::Drawing::Color::Transparent;
             this->button58->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button58->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button58->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1281,7 +1293,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button58->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button58->Location = System::Drawing::Point(459, 91);
+            this->button58->Location = System::Drawing::Point(514, 97);
             this->button58->Margin = System::Windows::Forms::Padding(0);
             this->button58->Name = L"button58";
             this->button58->Size = System::Drawing::Size(45, 45);
@@ -1291,7 +1303,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button59
             // 
-            this->button59->BackColor = System::Drawing::Color::Black;
+            this->button59->BackColor = System::Drawing::Color::Transparent;
             this->button59->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button59->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button59->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1299,7 +1311,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button59->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button59->Location = System::Drawing::Point(499, 91);
+            this->button59->Location = System::Drawing::Point(559, 97);
             this->button59->Margin = System::Windows::Forms::Padding(0);
             this->button59->Name = L"button59";
             this->button59->Size = System::Drawing::Size(45, 45);
@@ -1309,7 +1321,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button60
             // 
-            this->button60->BackColor = System::Drawing::Color::Black;
+            this->button60->BackColor = System::Drawing::Color::Transparent;
             this->button60->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button60->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button60->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1317,17 +1329,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button60->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button60->Location = System::Drawing::Point(540, 91);
+            this->button60->Location = System::Drawing::Point(604, 97);
             this->button60->Margin = System::Windows::Forms::Padding(0);
             this->button60->Name = L"button60";
-            this->button60->Size = System::Drawing::Size(57, 45);
+            this->button60->Size = System::Drawing::Size(65, 45);
             this->button60->TabIndex = 59;
             this->button60->Text = L"\\";
             this->button60->UseVisualStyleBackColor = false;
             // 
             // button61
             // 
-            this->button61->BackColor = System::Drawing::Color::Black;
+            this->button61->BackColor = System::Drawing::Color::Transparent;
             this->button61->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button61->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button61->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1335,7 +1347,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button61->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button61->Location = System::Drawing::Point(450, 169);
+            this->button61->Location = System::Drawing::Point(501, 187);
             this->button61->Margin = System::Windows::Forms::Padding(0);
             this->button61->Name = L"button61";
             this->button61->Size = System::Drawing::Size(45, 45);
@@ -1345,7 +1357,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button62
             // 
-            this->button62->BackColor = System::Drawing::Color::Black;
+            this->button62->BackColor = System::Drawing::Color::Transparent;
             this->button62->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button62->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button62->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1353,7 +1365,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button62->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button62->Location = System::Drawing::Point(410, 169);
+            this->button62->Location = System::Drawing::Point(456, 187);
             this->button62->Margin = System::Windows::Forms::Padding(0);
             this->button62->Name = L"button62";
             this->button62->Size = System::Drawing::Size(45, 45);
@@ -1363,7 +1375,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button63
             // 
-            this->button63->BackColor = System::Drawing::Color::Black;
+            this->button63->BackColor = System::Drawing::Color::Transparent;
             this->button63->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button63->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button63->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1371,7 +1383,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button63->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button63->Location = System::Drawing::Point(370, 169);
+            this->button63->Location = System::Drawing::Point(411, 187);
             this->button63->Margin = System::Windows::Forms::Padding(0);
             this->button63->Name = L"button63";
             this->button63->Size = System::Drawing::Size(45, 45);
@@ -1381,7 +1393,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button64
             // 
-            this->button64->BackColor = System::Drawing::Color::Black;
+            this->button64->BackColor = System::Drawing::Color::Transparent;
             this->button64->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button64->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button64->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1389,7 +1401,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button64->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button64->Location = System::Drawing::Point(330, 169);
+            this->button64->Location = System::Drawing::Point(366, 187);
             this->button64->Margin = System::Windows::Forms::Padding(0);
             this->button64->Name = L"button64";
             this->button64->Size = System::Drawing::Size(45, 45);
@@ -1399,7 +1411,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button65
             // 
-            this->button65->BackColor = System::Drawing::Color::Black;
+            this->button65->BackColor = System::Drawing::Color::Transparent;
             this->button65->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button65->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button65->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1407,7 +1419,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button65->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button65->Location = System::Drawing::Point(290, 169);
+            this->button65->Location = System::Drawing::Point(321, 187);
             this->button65->Margin = System::Windows::Forms::Padding(0);
             this->button65->Name = L"button65";
             this->button65->Size = System::Drawing::Size(45, 45);
@@ -1417,7 +1429,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button66
             // 
-            this->button66->BackColor = System::Drawing::Color::Black;
+            this->button66->BackColor = System::Drawing::Color::Transparent;
             this->button66->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button66->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button66->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1425,7 +1437,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button66->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button66->Location = System::Drawing::Point(250, 169);
+            this->button66->Location = System::Drawing::Point(276, 187);
             this->button66->Margin = System::Windows::Forms::Padding(0);
             this->button66->Name = L"button66";
             this->button66->Size = System::Drawing::Size(45, 45);
@@ -1435,7 +1447,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button67
             // 
-            this->button67->BackColor = System::Drawing::Color::Black;
+            this->button67->BackColor = System::Drawing::Color::Transparent;
             this->button67->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button67->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button67->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1443,7 +1455,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button67->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button67->Location = System::Drawing::Point(211, 169);
+            this->button67->Location = System::Drawing::Point(231, 187);
             this->button67->Margin = System::Windows::Forms::Padding(0);
             this->button67->Name = L"button67";
             this->button67->Size = System::Drawing::Size(45, 45);
@@ -1453,7 +1465,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button68
             // 
-            this->button68->BackColor = System::Drawing::Color::Black;
+            this->button68->BackColor = System::Drawing::Color::Transparent;
             this->button68->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button68->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button68->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1461,7 +1473,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button68->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button68->Location = System::Drawing::Point(172, 169);
+            this->button68->Location = System::Drawing::Point(186, 187);
             this->button68->Margin = System::Windows::Forms::Padding(0);
             this->button68->Name = L"button68";
             this->button68->Size = System::Drawing::Size(45, 45);
@@ -1471,7 +1483,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button69
             // 
-            this->button69->BackColor = System::Drawing::Color::Black;
+            this->button69->BackColor = System::Drawing::Color::Transparent;
             this->button69->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button69->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button69->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1479,7 +1491,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button69->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button69->Location = System::Drawing::Point(132, 169);
+            this->button69->Location = System::Drawing::Point(141, 187);
             this->button69->Margin = System::Windows::Forms::Padding(0);
             this->button69->Name = L"button69";
             this->button69->Size = System::Drawing::Size(45, 45);
@@ -1489,7 +1501,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button70
             // 
-            this->button70->BackColor = System::Drawing::Color::Black;
+            this->button70->BackColor = System::Drawing::Color::Transparent;
             this->button70->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button70->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button70->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1497,7 +1509,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button70->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button70->Location = System::Drawing::Point(91, 169);
+            this->button70->Location = System::Drawing::Point(96, 187);
             this->button70->Margin = System::Windows::Forms::Padding(0);
             this->button70->Name = L"button70";
             this->button70->Size = System::Drawing::Size(45, 45);
@@ -1507,7 +1519,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button71
             // 
-            this->button71->BackColor = System::Drawing::Color::Black;
+            this->button71->BackColor = System::Drawing::Color::Transparent;
             this->button71->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button71->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button71->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1515,43 +1527,43 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button71->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button71->Location = System::Drawing::Point(491, 169);
+            this->button71->Location = System::Drawing::Point(546, 187);
             this->button71->Margin = System::Windows::Forms::Padding(0);
             this->button71->Name = L"button71";
-            this->button71->Size = System::Drawing::Size(106, 45);
+            this->button71->Size = System::Drawing::Size(123, 45);
             this->button71->TabIndex = 70;
             this->button71->Text = L"Shift";
             this->button71->UseVisualStyleBackColor = false;
             // 
             // button72
             // 
-            this->button72->BackColor = System::Drawing::Color::Black;
+            this->button72->BackColor = System::Drawing::Color::Transparent;
             this->button72->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button72->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button72->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button72->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button72->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button72->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button72->Location = System::Drawing::Point(683, 52);
+            this->button72->Location = System::Drawing::Point(770, 52);
             this->button72->Margin = System::Windows::Forms::Padding(0);
             this->button72->Name = L"button72";
             this->button72->Size = System::Drawing::Size(45, 45);
             this->button72->TabIndex = 73;
-            this->button72->Text = L"PageUp";
+            this->button72->Text = L"Page Up";
             this->button72->UseVisualStyleBackColor = false;
             // 
             // button73
             // 
-            this->button73->BackColor = System::Drawing::Color::Black;
+            this->button73->BackColor = System::Drawing::Color::Transparent;
             this->button73->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button73->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button73->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button73->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button73->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button73->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button73->Location = System::Drawing::Point(646, 52);
+            this->button73->Location = System::Drawing::Point(725, 52);
             this->button73->Margin = System::Windows::Forms::Padding(0);
             this->button73->Name = L"button73";
             this->button73->Size = System::Drawing::Size(45, 45);
@@ -1561,15 +1573,15 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button74
             // 
-            this->button74->BackColor = System::Drawing::Color::Black;
+            this->button74->BackColor = System::Drawing::Color::Transparent;
             this->button74->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button74->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button74->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button74->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button74->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button74->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button74->Location = System::Drawing::Point(609, 52);
+            this->button74->Location = System::Drawing::Point(680, 52);
             this->button74->Margin = System::Windows::Forms::Padding(0);
             this->button74->Name = L"button74";
             this->button74->Size = System::Drawing::Size(45, 45);
@@ -1579,25 +1591,25 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button75
             // 
-            this->button75->BackColor = System::Drawing::Color::Black;
+            this->button75->BackColor = System::Drawing::Color::Transparent;
             this->button75->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button75->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button75->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button75->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button75->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button75->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button75->Location = System::Drawing::Point(683, 91);
+            this->button75->Location = System::Drawing::Point(770, 97);
             this->button75->Margin = System::Windows::Forms::Padding(0);
             this->button75->Name = L"button75";
             this->button75->Size = System::Drawing::Size(45, 45);
             this->button75->TabIndex = 76;
-            this->button75->Text = L"PageDown";
+            this->button75->Text = L"Page Down";
             this->button75->UseVisualStyleBackColor = false;
             // 
             // button76
             // 
-            this->button76->BackColor = System::Drawing::Color::Black;
+            this->button76->BackColor = System::Drawing::Color::Transparent;
             this->button76->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button76->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button76->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1605,7 +1617,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button76->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button76->Location = System::Drawing::Point(646, 91);
+            this->button76->Location = System::Drawing::Point(725, 97);
             this->button76->Margin = System::Windows::Forms::Padding(0);
             this->button76->Name = L"button76";
             this->button76->Size = System::Drawing::Size(45, 45);
@@ -1615,15 +1627,15 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button77
             // 
-            this->button77->BackColor = System::Drawing::Color::Black;
+            this->button77->BackColor = System::Drawing::Color::Transparent;
             this->button77->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button77->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button77->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button77->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button77->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button77->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button77->Location = System::Drawing::Point(609, 91);
+            this->button77->Location = System::Drawing::Point(680, 97);
             this->button77->Margin = System::Windows::Forms::Padding(0);
             this->button77->Name = L"button77";
             this->button77->Size = System::Drawing::Size(45, 45);
@@ -1633,7 +1645,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button78
             // 
-            this->button78->BackColor = System::Drawing::Color::Black;
+            this->button78->BackColor = System::Drawing::Color::Transparent;
             this->button78->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button78->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button78->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1641,7 +1653,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button78->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button78->Location = System::Drawing::Point(683, 210);
+            this->button78->Location = System::Drawing::Point(770, 232);
             this->button78->Margin = System::Windows::Forms::Padding(0);
             this->button78->Name = L"button78";
             this->button78->Size = System::Drawing::Size(45, 45);
@@ -1651,7 +1663,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button79
             // 
-            this->button79->BackColor = System::Drawing::Color::Black;
+            this->button79->BackColor = System::Drawing::Color::Transparent;
             this->button79->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button79->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button79->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1659,7 +1671,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button79->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button79->Location = System::Drawing::Point(646, 210);
+            this->button79->Location = System::Drawing::Point(725, 232);
             this->button79->Margin = System::Windows::Forms::Padding(0);
             this->button79->Name = L"button79";
             this->button79->Size = System::Drawing::Size(45, 45);
@@ -1669,7 +1681,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button80
             // 
-            this->button80->BackColor = System::Drawing::Color::Black;
+            this->button80->BackColor = System::Drawing::Color::Transparent;
             this->button80->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button80->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button80->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1677,7 +1689,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button80->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button80->Location = System::Drawing::Point(609, 210);
+            this->button80->Location = System::Drawing::Point(680, 232);
             this->button80->Margin = System::Windows::Forms::Padding(0);
             this->button80->Name = L"button80";
             this->button80->Size = System::Drawing::Size(45, 45);
@@ -1687,7 +1699,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button81
             // 
-            this->button81->BackColor = System::Drawing::Color::Black;
+            this->button81->BackColor = System::Drawing::Color::Transparent;
             this->button81->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button81->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button81->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1695,7 +1707,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button81->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button81->Location = System::Drawing::Point(646, 169);
+            this->button81->Location = System::Drawing::Point(725, 187);
             this->button81->Margin = System::Windows::Forms::Padding(0);
             this->button81->Name = L"button81";
             this->button81->Size = System::Drawing::Size(45, 45);
@@ -1705,7 +1717,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button82
             // 
-            this->button82->BackColor = System::Drawing::Color::Black;
+            this->button82->BackColor = System::Drawing::Color::Transparent;
             this->button82->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button82->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button82->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1713,7 +1725,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button82->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button82->Location = System::Drawing::Point(814, 91);
+            this->button82->Location = System::Drawing::Point(914, 97);
             this->button82->Margin = System::Windows::Forms::Padding(0);
             this->button82->Name = L"button82";
             this->button82->Size = System::Drawing::Size(45, 45);
@@ -1723,7 +1735,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button83
             // 
-            this->button83->BackColor = System::Drawing::Color::Black;
+            this->button83->BackColor = System::Drawing::Color::Transparent;
             this->button83->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button83->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button83->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1731,7 +1743,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button83->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button83->Location = System::Drawing::Point(777, 91);
+            this->button83->Location = System::Drawing::Point(869, 97);
             this->button83->Margin = System::Windows::Forms::Padding(0);
             this->button83->Name = L"button83";
             this->button83->Size = System::Drawing::Size(45, 45);
@@ -1741,7 +1753,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button84
             // 
-            this->button84->BackColor = System::Drawing::Color::Black;
+            this->button84->BackColor = System::Drawing::Color::Transparent;
             this->button84->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button84->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button84->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1749,7 +1761,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button84->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button84->Location = System::Drawing::Point(740, 91);
+            this->button84->Location = System::Drawing::Point(824, 97);
             this->button84->Margin = System::Windows::Forms::Padding(0);
             this->button84->Name = L"button84";
             this->button84->Size = System::Drawing::Size(45, 45);
@@ -1759,7 +1771,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button85
             // 
-            this->button85->BackColor = System::Drawing::Color::Black;
+            this->button85->BackColor = System::Drawing::Color::Transparent;
             this->button85->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button85->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button85->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1767,7 +1779,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button85->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button85->Location = System::Drawing::Point(814, 52);
+            this->button85->Location = System::Drawing::Point(914, 52);
             this->button85->Margin = System::Windows::Forms::Padding(0);
             this->button85->Name = L"button85";
             this->button85->Size = System::Drawing::Size(45, 45);
@@ -1777,7 +1789,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button86
             // 
-            this->button86->BackColor = System::Drawing::Color::Black;
+            this->button86->BackColor = System::Drawing::Color::Transparent;
             this->button86->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button86->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button86->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1785,7 +1797,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button86->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button86->Location = System::Drawing::Point(777, 52);
+            this->button86->Location = System::Drawing::Point(869, 52);
             this->button86->Margin = System::Windows::Forms::Padding(0);
             this->button86->Name = L"button86";
             this->button86->Size = System::Drawing::Size(45, 45);
@@ -1795,25 +1807,25 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button87
             // 
-            this->button87->BackColor = System::Drawing::Color::Black;
+            this->button87->BackColor = System::Drawing::Color::Transparent;
             this->button87->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button87->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button87->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button87->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button87->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button87->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button87->Location = System::Drawing::Point(740, 52);
+            this->button87->Location = System::Drawing::Point(824, 52);
             this->button87->Margin = System::Windows::Forms::Padding(0);
             this->button87->Name = L"button87";
             this->button87->Size = System::Drawing::Size(45, 45);
             this->button87->TabIndex = 81;
-            this->button87->Text = L"numlock";
+            this->button87->Text = L"Num Lock";
             this->button87->UseVisualStyleBackColor = false;
             // 
             // button88
             // 
-            this->button88->BackColor = System::Drawing::Color::Black;
+            this->button88->BackColor = System::Drawing::Color::Transparent;
             this->button88->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button88->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button88->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1821,7 +1833,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button88->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button88->Location = System::Drawing::Point(814, 169);
+            this->button88->Location = System::Drawing::Point(914, 187);
             this->button88->Margin = System::Windows::Forms::Padding(0);
             this->button88->Name = L"button88";
             this->button88->Size = System::Drawing::Size(45, 45);
@@ -1831,7 +1843,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button89
             // 
-            this->button89->BackColor = System::Drawing::Color::Black;
+            this->button89->BackColor = System::Drawing::Color::Transparent;
             this->button89->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button89->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button89->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1839,7 +1851,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button89->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button89->Location = System::Drawing::Point(777, 169);
+            this->button89->Location = System::Drawing::Point(869, 187);
             this->button89->Margin = System::Windows::Forms::Padding(0);
             this->button89->Name = L"button89";
             this->button89->Size = System::Drawing::Size(45, 45);
@@ -1849,7 +1861,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button90
             // 
-            this->button90->BackColor = System::Drawing::Color::Black;
+            this->button90->BackColor = System::Drawing::Color::Transparent;
             this->button90->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button90->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button90->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1857,7 +1869,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button90->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button90->Location = System::Drawing::Point(740, 169);
+            this->button90->Location = System::Drawing::Point(824, 187);
             this->button90->Margin = System::Windows::Forms::Padding(0);
             this->button90->Name = L"button90";
             this->button90->Size = System::Drawing::Size(45, 45);
@@ -1867,7 +1879,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button91
             // 
-            this->button91->BackColor = System::Drawing::Color::Black;
+            this->button91->BackColor = System::Drawing::Color::Transparent;
             this->button91->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button91->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button91->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1875,7 +1887,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button91->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button91->Location = System::Drawing::Point(814, 130);
+            this->button91->Location = System::Drawing::Point(914, 142);
             this->button91->Margin = System::Windows::Forms::Padding(0);
             this->button91->Name = L"button91";
             this->button91->Size = System::Drawing::Size(45, 45);
@@ -1885,7 +1897,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button92
             // 
-            this->button92->BackColor = System::Drawing::Color::Black;
+            this->button92->BackColor = System::Drawing::Color::Transparent;
             this->button92->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button92->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button92->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1893,7 +1905,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button92->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button92->Location = System::Drawing::Point(777, 130);
+            this->button92->Location = System::Drawing::Point(869, 142);
             this->button92->Margin = System::Windows::Forms::Padding(0);
             this->button92->Name = L"button92";
             this->button92->Size = System::Drawing::Size(45, 45);
@@ -1903,7 +1915,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button93
             // 
-            this->button93->BackColor = System::Drawing::Color::Black;
+            this->button93->BackColor = System::Drawing::Color::Transparent;
             this->button93->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button93->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button93->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1911,7 +1923,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button93->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button93->Location = System::Drawing::Point(740, 130);
+            this->button93->Location = System::Drawing::Point(824, 142);
             this->button93->Margin = System::Windows::Forms::Padding(0);
             this->button93->Name = L"button93";
             this->button93->Size = System::Drawing::Size(45, 45);
@@ -1921,7 +1933,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button94
             // 
-            this->button94->BackColor = System::Drawing::Color::Black;
+            this->button94->BackColor = System::Drawing::Color::Transparent;
             this->button94->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button94->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button94->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1929,7 +1941,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button94->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button94->Location = System::Drawing::Point(855, 52);
+            this->button94->Location = System::Drawing::Point(959, 52);
             this->button94->Margin = System::Windows::Forms::Padding(0);
             this->button94->Name = L"button94";
             this->button94->Size = System::Drawing::Size(45, 45);
@@ -1939,7 +1951,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button95
             // 
-            this->button95->BackColor = System::Drawing::Color::Black;
+            this->button95->BackColor = System::Drawing::Color::Transparent;
             this->button95->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button95->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button95->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1947,35 +1959,35 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button95->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button95->Location = System::Drawing::Point(855, 91);
+            this->button95->Location = System::Drawing::Point(959, 97);
             this->button95->Margin = System::Windows::Forms::Padding(0);
             this->button95->Name = L"button95";
-            this->button95->Size = System::Drawing::Size(45, 84);
+            this->button95->Size = System::Drawing::Size(45, 90);
             this->button95->TabIndex = 94;
             this->button95->Text = L"+";
             this->button95->UseVisualStyleBackColor = false;
             // 
             // button96
             // 
-            this->button96->BackColor = System::Drawing::Color::Black;
+            this->button96->BackColor = System::Drawing::Color::Transparent;
             this->button96->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button96->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button96->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button96->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button96->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button96->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button96->Location = System::Drawing::Point(855, 169);
+            this->button96->Location = System::Drawing::Point(959, 187);
             this->button96->Margin = System::Windows::Forms::Padding(0);
             this->button96->Name = L"button96";
-            this->button96->Size = System::Drawing::Size(45, 86);
+            this->button96->Size = System::Drawing::Size(45, 90);
             this->button96->TabIndex = 95;
             this->button96->Text = L"Enter";
             this->button96->UseVisualStyleBackColor = false;
             // 
             // button97
             // 
-            this->button97->BackColor = System::Drawing::Color::Black;
+            this->button97->BackColor = System::Drawing::Color::Transparent;
             this->button97->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button97->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button97->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1983,7 +1995,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button97->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button97->Location = System::Drawing::Point(814, 210);
+            this->button97->Location = System::Drawing::Point(914, 232);
             this->button97->Margin = System::Windows::Forms::Padding(0);
             this->button97->Name = L"button97";
             this->button97->Size = System::Drawing::Size(45, 45);
@@ -1993,7 +2005,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button98
             // 
-            this->button98->BackColor = System::Drawing::Color::Black;
+            this->button98->BackColor = System::Drawing::Color::Transparent;
             this->button98->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button98->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button98->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2001,17 +2013,18 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button98->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button98->Location = System::Drawing::Point(740, 210);
+            this->button98->Location = System::Drawing::Point(824, 232);
             this->button98->Margin = System::Windows::Forms::Padding(0);
             this->button98->Name = L"button98";
-            this->button98->Size = System::Drawing::Size(82, 45);
+            this->button98->Size = System::Drawing::Size(90, 45);
             this->button98->TabIndex = 97;
             this->button98->Text = L"0";
             this->button98->UseVisualStyleBackColor = false;
             // 
             // button99
             // 
-            this->button99->BackColor = System::Drawing::Color::Black;
+            this->button99->BackColor = System::Drawing::Color::Transparent;
+            this->button99->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button99.BackgroundImage")));
             this->button99->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button99->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button99->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2019,17 +2032,16 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button99->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button99->Location = System::Drawing::Point(55, 210);
+            this->button99->Location = System::Drawing::Point(67, 232);
             this->button99->Margin = System::Windows::Forms::Padding(0);
             this->button99->Name = L"button99";
-            this->button99->Size = System::Drawing::Size(41, 45);
+            this->button99->Size = System::Drawing::Size(55, 45);
             this->button99->TabIndex = 98;
-            this->button99->Text = L"Window";
             this->button99->UseVisualStyleBackColor = false;
             // 
             // button100
             // 
-            this->button100->BackColor = System::Drawing::Color::Black;
+            this->button100->BackColor = System::Drawing::Color::Transparent;
             this->button100->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button100->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button100->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2037,17 +2049,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button100->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button100->Location = System::Drawing::Point(91, 210);
+            this->button100->Location = System::Drawing::Point(122, 232);
             this->button100->Margin = System::Windows::Forms::Padding(0);
             this->button100->Name = L"button100";
-            this->button100->Size = System::Drawing::Size(66, 45);
+            this->button100->Size = System::Drawing::Size(55, 45);
             this->button100->TabIndex = 99;
             this->button100->Text = L"Alt";
             this->button100->UseVisualStyleBackColor = false;
             // 
             // button101
             // 
-            this->button101->BackColor = System::Drawing::Color::Black;
+            this->button101->BackColor = System::Drawing::Color::Transparent;
             this->button101->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button101->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button101->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2055,17 +2067,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button101->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button101->Location = System::Drawing::Point(390, 210);
+            this->button101->Location = System::Drawing::Point(437, 232);
             this->button101->Margin = System::Windows::Forms::Padding(0);
             this->button101->Name = L"button101";
-            this->button101->Size = System::Drawing::Size(65, 45);
+            this->button101->Size = System::Drawing::Size(55, 45);
             this->button101->TabIndex = 100;
             this->button101->Text = L"Alt";
             this->button101->UseVisualStyleBackColor = false;
             // 
             // button102
             // 
-            this->button102->BackColor = System::Drawing::Color::Black;
+            this->button102->BackColor = System::Drawing::Color::Transparent;
             this->button102->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button102->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button102->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2073,17 +2085,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button102->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button102->Location = System::Drawing::Point(447, 210);
+            this->button102->Location = System::Drawing::Point(492, 232);
             this->button102->Margin = System::Windows::Forms::Padding(0);
             this->button102->Name = L"button102";
-            this->button102->Size = System::Drawing::Size(48, 45);
+            this->button102->Size = System::Drawing::Size(55, 45);
             this->button102->TabIndex = 101;
             this->button102->Text = L"FN";
             this->button102->UseVisualStyleBackColor = false;
             // 
             // button103
             // 
-            this->button103->BackColor = System::Drawing::Color::Black;
+            this->button103->BackColor = System::Drawing::Color::Transparent;
             this->button103->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button103->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button103->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2091,17 +2103,17 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button103->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button103->Location = System::Drawing::Point(491, 210);
+            this->button103->Location = System::Drawing::Point(547, 232);
             this->button103->Margin = System::Windows::Forms::Padding(0);
             this->button103->Name = L"button103";
-            this->button103->Size = System::Drawing::Size(41, 45);
+            this->button103->Size = System::Drawing::Size(55, 45);
             this->button103->TabIndex = 102;
             this->button103->Text = L"[=]";
             this->button103->UseVisualStyleBackColor = false;
             // 
             // button104
             // 
-            this->button104->BackColor = System::Drawing::Color::Black;
+            this->button104->BackColor = System::Drawing::Color::Transparent;
             this->button104->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button104->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button104->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2109,7 +2121,7 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button104->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button104->Location = System::Drawing::Point(530, 210);
+            this->button104->Location = System::Drawing::Point(602, 232);
             this->button104->Margin = System::Windows::Forms::Padding(0);
             this->button104->Name = L"button104";
             this->button104->Size = System::Drawing::Size(67, 45);
@@ -2125,7 +2137,7 @@ private: System::Windows::Forms::Button^ button105;
             // 
             // button105
             // 
-            this->button105->BackColor = System::Drawing::Color::Black;
+            this->button105->BackColor = System::Drawing::Color::Transparent;
             this->button105->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
             this->button105->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
             this->button105->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2133,14 +2145,25 @@ private: System::Windows::Forms::Button^ button105;
                 static_cast<System::Byte>(0)));
             this->button105->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(0)));
-            this->button105->Location = System::Drawing::Point(740, 0);
+            this->button105->Location = System::Drawing::Point(824, 0);
             this->button105->Margin = System::Windows::Forms::Padding(0);
             this->button105->Name = L"button105";
-            this->button105->Size = System::Drawing::Size(160, 45);
+            this->button105->Size = System::Drawing::Size(180, 45);
             this->button105->TabIndex = 104;
             this->button105->Text = L"Settings";
             this->button105->UseVisualStyleBackColor = false;
             this->button105->Click += gcnew System::EventHandler(this, &Form1::button105_Click);
+            // 
+            // label1
+            // 
+            this->label1->AutoSize = true;
+            this->label1->BackColor = System::Drawing::Color::Transparent;
+            this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+                static_cast<System::Int32>(static_cast<System::Byte>(0)));
+            this->label1->Location = System::Drawing::Point(711, 158);
+            this->label1->Name = L"label1";
+            this->label1->Size = System::Drawing::Size(0, 13);
+            this->label1->TabIndex = 105;
             // 
             // Form1
             // 
@@ -2148,7 +2171,8 @@ private: System::Windows::Forms::Button^ button105;
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackColor = System::Drawing::Color::Black;
             this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-            this->ClientSize = System::Drawing::Size(900, 255);
+            this->ClientSize = System::Drawing::Size(1004, 277);
+            this->Controls->Add(this->label1);
             this->Controls->Add(this->button105);
             this->Controls->Add(this->button79);
             this->Controls->Add(this->button78);
@@ -2254,12 +2278,18 @@ private: System::Windows::Forms::Button^ button105;
             this->Controls->Add(this->button104);
             this->Controls->Add(this->button99);
             this->Controls->Add(this->button34);
+            this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+                static_cast<System::Int32>(static_cast<System::Byte>(0)));
+            this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+            this->MaximizeBox = false;
             this->Name = L"Form1";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
             this->Text = L"On Screen Keyboard Highlights";
             this->TopMost = true;
             this->TransparencyKey = System::Drawing::Color::White;
+            this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
             this->ResumeLayout(false);
+            this->PerformLayout();
 
         }
 #pragma endregion
@@ -2269,38 +2299,41 @@ private: System::Windows::Forms::Button^ button105;
     private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e)
     {
         #pragma region SaveSettings
-        if (f2->checkBox3->Checked == true)
-        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("OSKTopMostCB:false","OSKTopMostCB:true");}
-        else if (f2->checkBox3->Checked == false)
-        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("OSKTopMostCB:true", "OSKTopMostCB:false");}
-        if (f2->checkBox1->Checked == true)
-        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("ToggleSpamKeysCB:false", "ToggleSpamKeysCB:true");}
-        else if (f2->checkBox1->Checked == false)
-        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("ToggleSpamKeysCB:true", "ToggleSpamKeysCB:false");}
-        if (f2->checkBox2->Checked == true)
-        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("HoldSpamKeysCB:false", "HoldSpamKeysCB:true");}
-        else if (f2->checkBox2->Checked == false)
-        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("HoldSpamKeysCB:true", "HoldSpamKeysCB:false");}
-        if (f2->checkBox4->Checked == true)
-        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("SpecificWindowCB:false", "SpecificWindowCB:true");}
-        else if (f2->checkBox4->Checked == false)
-        {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("SpecificWindowCB:true", "SpecificWindowCB:false");}
-        int lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpecificWindowTitle:"));
-        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpecificWindowTitle:", ""), f2->textBox1->Text);//strip off the text in the beginning
-        lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpecificWindowClass:"));
-        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpecificWindowClass:", ""), f2->textBox2->Text);//strip off the text in the beginning
-        lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKOpacity:"));
-        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("OSKOpacity:", ""), f2->trackBar1->Value.ToString());//strip off the text in the beginning
-        lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKSettingsOpacity:"));
-        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("OSKSettingsOpacity:", ""), f2->trackBar2->Value.ToString());//strip off the text in the beginning
-        lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpamKeysFilter:"));
-        String^ tmpskfilter = f2->richTextBox1->Text->Replace(" ","")->Replace("\n",";")->Replace("\r","");
-        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpamKeysFilter:", "")->Replace("\n",""), tmpskfilter);//strip off the text in the beginning
-        f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("\n\n","\n");
-        if (settingsFileCreated == true)
+        if (f2->Visible == true)
         {
-            f2->richTextBox2->SaveFile("Settings.rtf");//save twice 'cause dumb
-            f2->richTextBox2->SaveFile("Settings.rtf");
+            if (f2->checkBox3->Checked == true)
+            {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("OSKTopMostCB:false", "OSKTopMostCB:true");}
+            else if (f2->checkBox3->Checked == false)
+            {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("OSKTopMostCB:true", "OSKTopMostCB:false");}
+            if (f2->checkBox1->Checked == true)
+            {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("ToggleSpamKeysCB:false", "ToggleSpamKeysCB:true");}
+            else if (f2->checkBox1->Checked == false)
+            {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("ToggleSpamKeysCB:true", "ToggleSpamKeysCB:false");}
+            if (f2->checkBox2->Checked == true)
+            {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("HoldSpamKeysCB:false", "HoldSpamKeysCB:true");}
+            else if (f2->checkBox2->Checked == false)
+            {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("HoldSpamKeysCB:true", "HoldSpamKeysCB:false");}
+            if (f2->checkBox4->Checked == true)
+            {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("SpecificWindowCB:false", "SpecificWindowCB:true");}
+            else if (f2->checkBox4->Checked == false)
+            {f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("SpecificWindowCB:true", "SpecificWindowCB:false");}
+            int lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpecificWindowTitle:"));
+            f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpecificWindowTitle:", ""), f2->textBox1->Text);//strip off the text in the beginning
+            lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpecificWindowClass:"));
+            f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpecificWindowClass:", ""), f2->textBox2->Text);//strip off the text in the beginning
+            lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKOpacity:"));
+            f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("OSKOpacity:", ""), f2->trackBar1->Value.ToString());//strip off the text in the beginning
+            lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("OSKSettingsOpacity:"));
+            f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("OSKSettingsOpacity:", ""), f2->trackBar2->Value.ToString());//strip off the text in the beginning
+            lineNum = f2->richTextBox2->GetLineFromCharIndex(f2->richTextBox2->Text->IndexOf("SpamKeysFilter:"));
+            String^ tmpskfilter = f2->richTextBox1->Text->Replace(" ", "")->Replace("\n", ";")->Replace("\r", "");
+            f2->richTextBox2->Text = f2->richTextBox2->Text->Replace(f2->richTextBox2->Lines[lineNum]->Replace("SpamKeysFilter:", "")->Replace("\n", ""), tmpskfilter);//strip off the text in the beginning
+            f2->richTextBox2->Text = f2->richTextBox2->Text->Replace("\n\n", "\n");
+            if (settingsFileCreated == true)
+            {
+                f2->richTextBox2->SaveFile("Settings.rtf");//save twice 'cause dumb
+                f2->richTextBox2->SaveFile("Settings.rtf");
+            }
         }
         #pragma endregion SaveSettings
 
@@ -2358,12 +2391,16 @@ private: System::Windows::Forms::Button^ button105;
 
         #pragma region findwindow to send keypresses to
         //window title/class finder
-        wstring foregroundwindowtitle;
-        f1hwnd = (HWND)this->Handle.ToInt32();
-        f2hwnd = (HWND)f2->Handle.ToInt32();
+        //wstring foregroundwindowtitle;
+        if (f1hwnd == NULL)
+        {f1hwnd = (HWND)this->Handle.ToInt32();}
+        if (f2hwnd == NULL)
+        {f2hwnd = (HWND)f2->Handle.ToInt32();}
+        if (f3hwnd == NULL)
+        {f3hwnd = (HWND)f3->Handle.ToInt32();}
         if (f2->checkBox5->Checked == true)
         {
-            if (GetForegroundWindow() != f1hwnd && GetForegroundWindow() != f2hwnd)
+            if (GetForegroundWindow() != f1hwnd && GetForegroundWindow() != f2hwnd && GetForegroundWindow() != f3hwnd)
             {
                 SendMessage(GetForegroundWindow(),WM_GETTEXT,MAX_PATH,(LPARAM)WindowTitle);
                 GetClassName(GetForegroundWindow(), WindowClass, sizeof(WindowClass));
@@ -2374,12 +2411,17 @@ private: System::Windows::Forms::Button^ button105;
         }
 
         //using FindWindow function using the title/class textboxes
-        wstring wndtitletb = marshal_as<wstring>(f2->textBox1->Text);
-        wstring wndclasstb = marshal_as<wstring>(f2->textBox2->Text);
-        windowtosendkeypressesto = FindWindowW(wndclasstb.c_str(), wndtitletb.c_str());
+        if (windowtosendkeypressesto == NULL && FindWindowW(marshal_as<wstring>(f2->textBox2->Text).c_str(), marshal_as<wstring>(f2->textBox1->Text).c_str()) != NULL)
+        {
+            wstring wndtitletb = marshal_as<wstring>(f2->textBox1->Text);//causing heap GC to trigger pretty consistently while not finding the window to search for
+            wstring wndclasstb = marshal_as<wstring>(f2->textBox2->Text);
+            windowtosendkeypressesto = FindWindowW(wndclasstb.c_str(), wndtitletb.c_str());
+        }
         #pragma endregion findwindow to send keypresses to
 
         #pragma region main form xy tracker for settings form
+        //f2->Location = Point(this->Location.X,this->Location.Y);
+        //f2->Size = System::Drawing::Size(this->Width,this->Height);
         f2->Location = Point(this->Location.X + this->Width/2 - f2->Width/2,this->Location.Y + this->Height/2 - f2->Height/2);
         #pragma endregion main form xy tracker for settings form
 
@@ -2396,7 +2438,21 @@ private: System::Windows::Forms::Button^ button105;
         }
         #pragma endregion OSKTopMost
 
-        #pragma region opacity trackbar for this form
+        #pragma region Bonus On Screen Mouse(OSM)
+        if (f2->checkBox6->Checked == true)
+        {
+            if (f3->Visible == false)
+            {f3->Show();}
+        }
+        else if (f2->checkBox6->Checked == false)
+        {
+            if (f3->Visible == true)
+            {f3->Hide();}
+        }
+        f3->Location = Point(this->Location.X + this->Width,this->Location.Y);
+        #pragma endregion Bonus On Screen Mouse(OSM)
+
+        #pragma region opacity trackbar for this form and form3
         if (f2->trackBar1->Value == 1)
         {this->Opacity = 0.10;}
         else if (f2->trackBar1->Value == 2)
@@ -2417,16 +2473,19 @@ private: System::Windows::Forms::Button^ button105;
         {this->Opacity = 0.90;}
         else if (f2->trackBar1->Value == 10)
         {this->Opacity = 1.0;}
-        #pragma endregion opacity trackbar for this form
+        f3->Opacity = this->Opacity;
+        #pragma endregion opacity trackbar for this form and form3
 
         #pragma region hotkeys
-        if (GetAsyncKeyState(VK_CONTROL) < 0 && GetAsyncKeyState(VK_T) < 0)//hotkeys to enable/disable toggleable keys...toggle toggleable keys
+        if (GetAsyncKeyState(VK_CONTROL) < 0 && GetAsyncKeyState(VK_T) < 0)//hotkeys to enable/disable toggleable keys...toggle toggleable keys lol
         {
             if (f2->checkBox1->Checked == false)
             {f2->checkBox1->Checked = true;}
             else if (f2->checkBox1->Checked == true)
             {f2->checkBox1->Checked = false;}
         }
+        //toggle voice commands(idk if I'm even going to have these in this program; was just testing it out)
+        //toggle show/hide OSK/OSM(useful if you're about to type a password or something and don't want the OnScreenKeyboard visible)
         #pragma endregion hotkeys
 
         #pragma region keys listener and spammer
@@ -2467,7 +2526,7 @@ private: System::Windows::Forms::Button^ button105;
 
         if (GetAsyncKeyState(VK_ESCAPE) < 0)
         {
-            button1->BackColor = Color::Gray;
+            button1->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2490,11 +2549,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_ESCAPE) >= 0)
         {
-            button1->BackColor = Color::Black;
+            if (button1->BackColor != this->BackColor)
+            {button1->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F1) < 0)
         {
-            button2->BackColor = Color::Gray;
+            button2->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2517,11 +2577,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F1) >= 0)
         {
-            button2->BackColor = Color::Black;
+            if (button2->BackColor != this->BackColor)
+            {button2->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F2) < 0)
         {
-            button3->BackColor = Color::Gray;
+            button3->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2544,11 +2605,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F2) >= 0)
         {
-            button3->BackColor = Color::Black;
+            if (button3->BackColor != this->BackColor)
+            {button3->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F3) < 0)
         {
-            button4->BackColor = Color::Gray;
+            button4->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2571,11 +2633,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F3) >= 0)
         {
-            button4->BackColor = Color::Black;
+            if (button4->BackColor != this->BackColor)
+            {button4->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F4) < 0)
         {
-            button5->BackColor = Color::Gray;
+            button5->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2598,11 +2661,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F4) >= 0)
         {
-            button5->BackColor = Color::Black;
+            if (button5->BackColor != this->BackColor)
+            {button5->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F5) < 0)
         {
-            button6->BackColor = Color::Gray;
+            button6->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2625,11 +2689,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F5) >= 0)
         {
-            button6->BackColor = Color::Black;
+            if (button6->BackColor != this->BackColor)
+            {button6->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F6) < 0)
         {
-            button7->BackColor = Color::Gray;
+            button7->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2652,11 +2717,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F6) >= 0)
         {
-            button7->BackColor = Color::Black;
+            if (button7->BackColor != this->BackColor)
+            {button7->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F7) < 0)
         {
-            button8->BackColor = Color::Gray;
+            button8->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2679,11 +2745,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F7) >= 0)
         {
-            button8->BackColor = Color::Black;
+            if (button8->BackColor != this->BackColor)
+            {button8->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F8) < 0)
         {
-            button9->BackColor = Color::Gray;
+            button9->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2706,11 +2773,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F8) >= 0)
         {
-            button9->BackColor = Color::Black;
+            if (button9->BackColor != this->BackColor)
+            {button9->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F9) < 0)
         {
-            button10->BackColor = Color::Gray;
+            button10->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2733,11 +2801,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F9) >= 0)
         {
-            button10->BackColor = Color::Black;
+            if (button10->BackColor != this->BackColor)
+            {button10->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F10) < 0)
         {
-            button11->BackColor = Color::Gray;
+            button11->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2760,11 +2829,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F10) >= 0)
         {
-            button11->BackColor = Color::Black;
+            if (button11->BackColor != this->BackColor)
+            {button11->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F11) < 0)
         {
-            button12->BackColor = Color::Gray;
+            button12->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2787,11 +2857,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F11) >= 0)
         {
-            button12->BackColor = Color::Black;
+            if (button12->BackColor != this->BackColor)
+            {button12->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_F12) < 0)
         {
-            button13->BackColor = Color::Gray;
+            button13->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2814,11 +2885,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_F12) >= 0)
         {
-            button13->BackColor = Color::Black;
+            if (button13->BackColor != this->BackColor)
+            {button13->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_SNAPSHOT) < 0)//print screen
         {
-            button14->BackColor = Color::Gray;
+            button14->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2841,11 +2913,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_SNAPSHOT) >= 0)
         {
-            button14->BackColor = Color::Black;
+            if (button14->BackColor != this->BackColor)
+            {button14->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_SCROLL) < 0)//scroll lock
         {
-            button15->BackColor = Color::Gray;
+            button15->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2868,11 +2941,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_SCROLL) >= 0)
         {
-            button15->BackColor = Color::Black;
+            if (button15->BackColor != this->BackColor)
+            {button15->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_PAUSE) < 0)//pause break
         {
-            button16->BackColor = Color::Gray;
+            button16->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2895,11 +2969,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_PAUSE) >= 0)
         {
-            button16->BackColor = Color::Black;
+            if (button16->BackColor != this->BackColor)
+            {button16->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_OEM_3) < 0)//`~ key
         {
-            button27->BackColor = Color::Gray;
+            button27->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2922,11 +2997,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_OEM_3) >= 0)
         {
-            button27->BackColor = Color::Black;
+            if (button27->BackColor != this->BackColor)
+            {button27->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_1) < 0)
         {
-            button17->BackColor = Color::Gray;
+            button17->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2949,11 +3025,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_1) >= 0)
         {
-            button17->BackColor = Color::Black;
+            if (button17->BackColor != this->BackColor)
+            {button17->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_2) < 0)
         {
-            button18->BackColor = Color::Gray;
+            button18->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -2976,11 +3053,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_2) >= 0)
         {
-            button18->BackColor = Color::Black;
+            if (button18->BackColor != this->BackColor)
+            {button18->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_3) < 0)
         {
-            button19->BackColor = Color::Gray;
+            button19->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3003,11 +3081,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_3) >= 0)
         {
-            button19->BackColor = Color::Black;
+            if (button19->BackColor != this->BackColor)
+            {button19->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_4) < 0)
         {
-            button20->BackColor = Color::Gray;
+            button20->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3030,11 +3109,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_4) >= 0)
         {
-            button20->BackColor = Color::Black;
+            if (button20->BackColor != this->BackColor)
+            {button20->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_5) < 0)
         {
-            button21->BackColor = Color::Gray;
+            button21->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3057,11 +3137,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_5) >= 0)
         {
-            button21->BackColor = Color::Black;
+            if (button21->BackColor != this->BackColor)
+            {button21->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_6) < 0)
         {
-            button22->BackColor = Color::Gray;
+            button22->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3084,11 +3165,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_6) >= 0)
         {
-            button22->BackColor = Color::Black;
+            if (button22->BackColor != this->BackColor)
+            {button22->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_7) < 0)
         {
-            button23->BackColor = Color::Gray;
+            button23->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3111,11 +3193,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_7) >= 0)
         {
-            button23->BackColor = Color::Black;
+            if (button23->BackColor != this->BackColor)
+            {button23->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_8) < 0)
         {
-            button24->BackColor = Color::Gray;
+            button24->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3138,11 +3221,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_8) >= 0)
         {
-            button24->BackColor = Color::Black;
+            if (button24->BackColor != this->BackColor)
+            {button24->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_9) < 0)
         {
-            button25->BackColor = Color::Gray;
+            button25->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3165,11 +3249,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_9) >= 0)
         {
-            button25->BackColor = Color::Black;
+            if (button25->BackColor != this->BackColor)
+            {button25->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_0) < 0)
         {
-            button26->BackColor = Color::Gray;
+            button26->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3192,11 +3277,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_0) >= 0)
         {
-            button26->BackColor = Color::Black;
+            if (button26->BackColor != this->BackColor)
+            {button26->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_OEM_MINUS) < 0)//-_ key
         {
-            button28->BackColor = Color::Gray;
+            button28->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3219,11 +3305,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_OEM_MINUS) >= 0)
         {
-            button28->BackColor = Color::Black;
+            if (button28->BackColor != this->BackColor)
+            {button28->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_OEM_PLUS) < 0)//=+ key
         {
-            button29->BackColor = Color::Gray;
+            button29->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3246,11 +3333,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_OEM_PLUS) >= 0)
         {
-            button29->BackColor = Color::Black;
+            if (button29->BackColor != this->BackColor)
+            {button29->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_BACK) < 0)//backspace
         {
-            button30->BackColor = Color::Gray;
+            button30->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3273,11 +3361,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_BACK) >= 0)
         {
-            button30->BackColor = Color::Black;
+            if (button30->BackColor != this->BackColor)
+            {button30->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_INSERT) < 0)
         {
-            button74->BackColor = Color::Gray;
+            button74->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3300,11 +3389,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_INSERT) >= 0)
         {
-            button74->BackColor = Color::Black;
+            if (button74->BackColor != this->BackColor)
+            {button74->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_HOME) < 0)
         {
-            button73->BackColor = Color::Gray;
+            button73->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3327,11 +3417,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_HOME) >= 0)
         {
-            button73->BackColor = Color::Black;
+            if (button73->BackColor != this->BackColor)
+            {button73->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_PRIOR) < 0)//pageup
         {
-            button72->BackColor = Color::Gray;
+            button72->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3354,11 +3445,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_PRIOR) >= 0)
         {
-            button72->BackColor = Color::Black;
+            if (button72->BackColor != this->BackColor)
+            {button72->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_NUMLOCK) < 0)
         {
-            button87->BackColor = Color::Gray;
+            button87->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3381,11 +3473,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_NUMLOCK) >= 0)
         {
-            button87->BackColor = Color::Black;
+            if (button87->BackColor != this->BackColor)
+            {button87->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_DIVIDE) < 0)
         {
-            button86->BackColor = Color::Gray;
+            button86->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3408,11 +3501,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_DIVIDE) >= 0)
         {
-            button86->BackColor = Color::Black;
+            if (button86->BackColor != this->BackColor)
+            {button86->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_MULTIPLY) < 0)
         {
-            button85->BackColor = Color::Gray;
+            button85->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3435,11 +3529,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_MULTIPLY) >= 0)
         {
-            button85->BackColor = Color::Black;
+            if (button85->BackColor != this->BackColor)
+            {button85->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_SUBTRACT) < 0)
         {
-            button94->BackColor = Color::Gray;
+            button94->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3462,11 +3557,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_SUBTRACT) >= 0)
         {
-            button94->BackColor = Color::Black;
+            if (button94->BackColor != this->BackColor)
+            {button94->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_TAB) < 0)
         {
-            button31->BackColor = Color::Gray;
+            button31->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3489,11 +3585,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_TAB) >= 0)
         {
-            button31->BackColor = Color::Black;
+            if (button31->BackColor != this->BackColor)
+            {button31->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_Q) < 0)
         {
-            button36->BackColor = Color::Gray;
+            button36->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3516,11 +3613,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_Q) >= 0)
         {
-            button36->BackColor = Color::Black;
+            if (button36->BackColor != this->BackColor)
+            {button36->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_W) < 0)
         {
-            button37->BackColor = Color::Gray;
+            button37->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3543,11 +3641,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_W) >= 0)
         {
-            button37->BackColor = Color::Black;
+            if (button37->BackColor != this->BackColor)
+            {button37->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_E) < 0)
         {
-            button38->BackColor = Color::Gray;
+            button38->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3570,11 +3669,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_E) >= 0)
         {
-            button38->BackColor = Color::Black;
+            if (button38->BackColor != this->BackColor)
+            {button38->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_R) < 0)
         {
-            button39->BackColor = Color::Gray;
+            button39->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3597,11 +3697,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_R) >= 0)
         {
-            button39->BackColor = Color::Black;
+            if (button39->BackColor != this->BackColor)
+            {button39->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_T) < 0)
         {
-            button40->BackColor = Color::Gray;
+            button40->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3624,11 +3725,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_T) >= 0)
         {
-            button40->BackColor = Color::Black;
+            if (button40->BackColor != this->BackColor)
+            {button40->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_Y) < 0)
         {
-            button41->BackColor = Color::Gray;
+            button41->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3651,11 +3753,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_Y) >= 0)
         {
-            button41->BackColor = Color::Black;
+            if (button41->BackColor != this->BackColor)
+            {button41->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_U) < 0)
         {
-            button42->BackColor = Color::Gray;
+            button42->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3678,11 +3781,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_U) >= 0)
         {
-            button42->BackColor = Color::Black;
+            if (button42->BackColor != this->BackColor)
+            {button42->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_I) < 0)
         {
-            button43->BackColor = Color::Gray;
+            button43->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3705,11 +3809,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_I) >= 0)
         {
-            button43->BackColor = Color::Black;
+            if (button43->BackColor != this->BackColor)
+            {button43->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_O) < 0)
         {
-            button44->BackColor = Color::Gray;
+            button44->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3732,11 +3837,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_O) >= 0)
         {
-            button44->BackColor = Color::Black;
+            if (button44->BackColor != this->BackColor)
+            {button44->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_P) < 0)
         {
-            button45->BackColor = Color::Gray;
+            button45->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3759,11 +3865,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_P) >= 0)
         {
-            button45->BackColor = Color::Black;
+            if (button45->BackColor != this->BackColor)
+            {button45->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_OEM_4) < 0)//[{ KEY
         {
-            button58->BackColor = Color::Gray;
+            button58->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3786,11 +3893,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_OEM_4) >= 0)
         {
-            button58->BackColor = Color::Black;
+            if (button58->BackColor != this->BackColor)
+            {button58->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_OEM_6) < 0)//]} KEY
         {
-            button59->BackColor = Color::Gray;
+            button59->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3813,11 +3921,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_OEM_6) >= 0)
         {
-            button59->BackColor = Color::Black;
+            if (button59->BackColor != this->BackColor)
+            {button59->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_OEM_5) < 0)//\| KEY
         {
-            button60->BackColor = Color::Gray;
+            button60->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3840,11 +3949,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_OEM_5) >= 0)
         {
-            button60->BackColor = Color::Black;
+            if (button60->BackColor != this->BackColor)
+            {button60->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_DELETE) < 0)
         {
-            button77->BackColor = Color::Gray;
+            button77->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3867,11 +3977,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_DELETE) >= 0)
         {
-            button77->BackColor = Color::Black;
+            if (button77->BackColor != this->BackColor)
+            {button77->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_END) < 0)
         {
-            button76->BackColor = Color::Gray;
+            button76->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3894,11 +4005,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_END) >= 0)
         {
-            button76->BackColor = Color::Black;
+            if (button76->BackColor != this->BackColor)
+            {button76->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_NEXT) < 0)//PAGEDOWN
         {
-            button75->BackColor = Color::Gray;
+            button75->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3921,11 +4033,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_NEXT) >= 0)
         {
-            button75->BackColor = Color::Black;
+            if (button75->BackColor != this->BackColor)
+            {button75->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_NUMPAD7) < 0)
         {
-            button84->BackColor = Color::Gray;
+            button84->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3948,11 +4061,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_NUMPAD7) >= 0)
         {
-            button84->BackColor = Color::Black;
+            if (button84->BackColor != this->BackColor)
+            {button84->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_NUMPAD8) < 0)
         {
-            button83->BackColor = Color::Gray;
+            button83->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -3975,11 +4089,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_NUMPAD8) >= 0)
         {
-            button83->BackColor = Color::Black;
+            if (button83->BackColor != this->BackColor)
+            {button83->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_NUMPAD9) < 0)
         {
-            button82->BackColor = Color::Gray;
+            button82->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4002,11 +4117,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_NUMPAD9) >= 0)
         {
-            button82->BackColor = Color::Black;
+            if (button82->BackColor != this->BackColor)
+            {button82->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_ADD) < 0)
         {
-            button95->BackColor = Color::Gray;
+            button95->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4029,11 +4145,12 @@ private: System::Windows::Forms::Button^ button105;
         }
         else if (GetAsyncKeyState(VK_ADD) >= 0)
         {
-            button95->BackColor = Color::Black;
+            if (button95->BackColor != this->BackColor)
+            {button95->BackColor = this->BackColor;}
         }
         if (GetAsyncKeyState(VK_CAPITAL) < 0)
         {
-            button32->BackColor = Color::Gray;
+            button32->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4055,10 +4172,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_CAPITAL) >= 0)
-        {button32->BackColor = Color::Black;}
+        {
+            if (button32->BackColor != this->BackColor)
+            {button32->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_A) < 0)
         {
-            button55->BackColor = Color::Gray;
+            button55->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4080,10 +4200,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_A) >= 0)
-        {button55->BackColor = Color::Black;}
+        {
+            if (button55->BackColor != this->BackColor)
+            {button55->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_S) < 0)
         {
-            button54->BackColor = Color::Gray;
+            button54->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4105,10 +4228,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_S) >= 0)
-        {button54->BackColor = Color::Black;}
+        {
+            if (button54->BackColor != this->BackColor)
+            {button54->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_D) < 0)
         {
-            button53->BackColor = Color::Gray;
+            button53->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4130,10 +4256,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_D) >= 0)
-        {button53->BackColor = Color::Black;}
+        {
+            if (button53->BackColor != this->BackColor)
+            {button53->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_F) < 0)
         {
-            button52->BackColor = Color::Gray;
+            button52->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4155,10 +4284,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_F) >= 0)
-        {button52->BackColor = Color::Black;}
+        {
+            if (button52->BackColor != this->BackColor)
+            {button52->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_G) < 0)
         {
-            button51->BackColor = Color::Gray;
+            button51->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4180,10 +4312,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_G) >= 0)
-        {button51->BackColor = Color::Black;}
+        {
+            if (button51->BackColor != this->BackColor)
+            {button51->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_H) < 0)
         {
-            button50->BackColor = Color::Gray;
+            button50->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4205,10 +4340,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_H) >= 0)
-        {button50->BackColor = Color::Black;}
+        {
+            if (button50->BackColor != this->BackColor)
+            {button50->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_J) < 0)
         {
-            button49->BackColor = Color::Gray;
+            button49->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4230,10 +4368,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_J) >= 0)
-        {button49->BackColor = Color::Black;}
+        {
+            if (button49->BackColor != this->BackColor)
+            {button49->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_K) < 0)
         {
-            button48->BackColor = Color::Gray;
+            button48->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4255,10 +4396,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_K) >= 0)
-        {button48->BackColor = Color::Black;}
+        {
+            if (button48->BackColor != this->BackColor)
+            {button48->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_L) < 0)
         {
-            button47->BackColor = Color::Gray;
+            button47->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4280,10 +4424,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_L) >= 0)
-        {button47->BackColor = Color::Black;}
+        {
+            if (button47->BackColor != this->BackColor)
+            {button47->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_OEM_1) < 0)//;: KEY
         {
-            button46->BackColor = Color::Gray;
+            button46->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4305,10 +4452,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_OEM_1) >= 0)
-        {button46->BackColor = Color::Black;}
+        {
+            if (button46->BackColor != this->BackColor)
+            {button46->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_OEM_7) < 0)//'" KEY
         {
-            button56->BackColor = Color::Gray;
+            button56->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4330,10 +4480,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_OEM_7) >= 0)
-        {button56->BackColor = Color::Black;}
+        {
+            if (button56->BackColor != this->BackColor)
+            {button56->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_RETURN) < 0)//ENTER KEY
         {
-            button57->BackColor = Color::Gray;
+            button57->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4355,10 +4508,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_RETURN) >= 0)
-        {button57->BackColor = Color::Black;}
+        {
+            if (button57->BackColor != this->BackColor)
+            {button57->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_NUMPAD4) < 0)
         {
-            button93->BackColor = Color::Gray;
+            button93->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4380,10 +4536,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_NUMPAD4) >= 0)
-        {button93->BackColor = Color::Black;}
+        {
+            if (button93->BackColor != this->BackColor)
+            {button93->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_NUMPAD5) < 0)
         {
-            button92->BackColor = Color::Gray;
+            button92->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4405,10 +4564,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_NUMPAD5) >= 0)
-        {button92->BackColor = Color::Black;}
+        {
+            if (button92->BackColor != this->BackColor)
+            {button92->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_NUMPAD6) < 0)
         {
-            button91->BackColor = Color::Gray;
+            button91->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4430,10 +4592,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_NUMPAD6) >= 0)
-        {button91->BackColor = Color::Black;}
+        {
+            if (button91->BackColor != this->BackColor)
+            {button91->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_LSHIFT) < 0)
         {
-            button33->BackColor = Color::Gray;
+            button33->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4455,10 +4620,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_LSHIFT) >= 0)
-        {button33->BackColor = Color::Black;}
+        {
+            if (button33->BackColor != this->BackColor)
+            {button33->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_Z) < 0)
         {
-            button70->BackColor = Color::Gray;
+            button70->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4480,10 +4648,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_Z) >= 0)
-        {button70->BackColor = Color::Black;}
+        {
+            if (button70->BackColor != this->BackColor)
+            {button70->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_X) < 0)
         {
-            button69->BackColor = Color::Gray;
+            button69->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4505,10 +4676,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_X) >= 0)
-        {button69->BackColor = Color::Black;}
+        {
+            if (button69->BackColor != this->BackColor)
+            {button69->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_C) < 0)
         {
-            button68->BackColor = Color::Gray;
+            button68->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4530,10 +4704,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_C) >= 0)
-        {button68->BackColor = Color::Black;}
+        {
+            if (button68->BackColor != this->BackColor)
+            {button68->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_V) < 0)
         {
-            button67->BackColor = Color::Gray;
+            button67->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4555,10 +4732,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_V) >= 0)
-        {button67->BackColor = Color::Black;}
+        {
+            if (button67->BackColor != this->BackColor)
+            {button67->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_B) < 0)
         {
-            button66->BackColor = Color::Gray;
+            button66->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4580,10 +4760,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_B) >= 0)
-        {button66->BackColor = Color::Black;}
+        {
+            if (button66->BackColor != this->BackColor)
+            {button66->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_N) < 0)
         {
-            button65->BackColor = Color::Gray;
+            button65->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4605,10 +4788,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_N) >= 0)
-        {button65->BackColor = Color::Black;}
+        {
+            if (button65->BackColor != this->BackColor)
+            {button65->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_M) < 0)
         {
-            button64->BackColor = Color::Gray;
+            button64->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4630,10 +4816,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_M) >= 0)
-        {button64->BackColor = Color::Black;}
+        {
+            if (button64->BackColor != this->BackColor)
+            {button64->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_OEM_COMMA) < 0)//,< KEY
         {
-            button63->BackColor = Color::Gray;
+            button63->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4655,10 +4844,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_OEM_COMMA) >= 0)
-        {button63->BackColor = Color::Black;}
+        {
+            if (button63->BackColor != this->BackColor)
+            {button63->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_OEM_PERIOD) < 0)//.> KEY
         {
-            button62->BackColor = Color::Gray;
+            button62->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4680,10 +4872,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_OEM_PERIOD) >= 0)
-        {button62->BackColor = Color::Black;}
+        {
+            if (button62->BackColor != this->BackColor)
+            {button62->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_OEM_2) < 0)// /? KEY
         {
-            button61->BackColor = Color::Gray;
+            button61->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4705,10 +4900,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_OEM_2) >= 0)
-        {button61->BackColor = Color::Black;}
+        {
+            if (button61->BackColor != this->BackColor)
+            {button61->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_RSHIFT) < 0)
         {
-            button71->BackColor = Color::Gray;
+            button71->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4730,10 +4928,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_RSHIFT) >= 0)
-        {button71->BackColor = Color::Black;}
+        {
+            if (button71->BackColor != this->BackColor)
+            {button71->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_UP) < 0)
         {
-            button81->BackColor = Color::Gray;
+            button81->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4755,10 +4956,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_UP) >= 0)
-        {button81->BackColor = Color::Black;}
+        {
+            if (button81->BackColor != this->BackColor)
+            {button81->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_NUMPAD1) < 0)
         {
-            button90->BackColor = Color::Gray;
+            button90->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4780,10 +4984,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_NUMPAD1) >= 0)
-        {button90->BackColor = Color::Black;}
+        {
+            if (button90->BackColor != this->BackColor)
+            {button90->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_NUMPAD2) < 0)
         {
-            button89->BackColor = Color::Gray;
+            button89->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4805,10 +5012,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_NUMPAD2) >= 0)
-        {button89->BackColor = Color::Black;}
+        {
+            if (button89->BackColor != this->BackColor)
+            {button89->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_NUMPAD3) < 0)
         {
-            button88->BackColor = Color::Gray;
+            button88->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4830,10 +5040,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_NUMPAD3) >= 0)
-        {button88->BackColor = Color::Black;}
+        {
+            if (button88->BackColor != this->BackColor)
+            {button88->BackColor = this->BackColor;}
+        }
         //if (GetAsyncKeyState(VK_NUMPADENTER) < 0)//NUMPAD ENTER?
         //{
-        //    button96->BackColor = Color::Gray;
+        //    button96->BackColor = button1->FlatAppearance->MouseDownBackColor;
         //    if (f2->checkBox1->Checked == true)
         //    {
         //        togglespamkey = true;
@@ -4845,10 +5058,10 @@ private: System::Windows::Forms::Button^ button105;
         //    }
         //}
         //else if (GetAsyncKeyState(VK_NUMPAD3) >= 0)
-        //{button96->BackColor = Color::Black;}
+        //{button96->BackColor = this->BackColor;}
         if (GetAsyncKeyState(VK_LCONTROL) < 0)
         {
-            button34->BackColor = Color::Gray;
+            button34->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4870,10 +5083,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_LCONTROL) >= 0)
-        {button34->BackColor = Color::Black;}
+        {
+            if (button34->BackColor != this->BackColor)
+            {button34->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_LWIN) < 0)//LEFT WINDOWS KEY
         {
-            button99->BackColor = Color::Gray;
+            button99->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4895,10 +5111,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_LWIN) >= 0)
-        {button99->BackColor = Color::Black;}
+        {
+            if (button99->BackColor != this->BackColor)
+            {button99->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_LMENU) < 0)//LEFT ALT KEY
         {
-            button100->BackColor = Color::Gray;
+            button100->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4920,10 +5139,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_LMENU) >= 0)
-        {button100->BackColor = Color::Black;}
+        {
+            if (button100->BackColor != this->BackColor)
+            {button100->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_SPACE) < 0)
         {
-            button35->BackColor = Color::Gray;
+            button35->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4945,10 +5167,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_SPACE) >= 0)
-        {button35->BackColor = Color::Black;}
+        {
+            if (button35->BackColor != this->BackColor)
+            {button35->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_RMENU) < 0)//RIGHT ALT KEY
         {
-            button101->BackColor = Color::Gray;
+            button101->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -4970,10 +5195,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_RMENU) >= 0)
-        {button101->BackColor = Color::Black;}
+        {
+            if (button101->BackColor != this->BackColor)
+            {button101->BackColor = this->BackColor;}
+        }
         //if (GetAsyncKeyState(VK_RMENU) < 0)//FN KEY
         //{
-        //    button102->BackColor = Color::Gray;
+        //    button102->BackColor = button1->FlatAppearance->MouseDownBackColor;
         //    if (f2->checkBox1->Checked == true)
         //    {
         //        togglespamkey = true;
@@ -4985,10 +5213,10 @@ private: System::Windows::Forms::Button^ button105;
         //    }
         //}
         //else if (GetAsyncKeyState(VK_RMENU) >= 0)
-        //{button102->BackColor = Color::Black;}
+        //{button102->BackColor = this->BackColor;}
         //if (GetAsyncKeyState(VK_RMENU) < 0)//IDK WTF KEY THIS IS KEY
         //{
-        //    button103->BackColor = Color::Gray;
+        //    button103->BackColor = button1->FlatAppearance->MouseDownBackColor;
         //    if (f2->checkBox1->Checked == true)
         //    {
         //        togglespamkey = true;
@@ -5000,10 +5228,10 @@ private: System::Windows::Forms::Button^ button105;
         //    }
         //}
         //else if (GetAsyncKeyState(VK_RMENU) >= 0)
-        //{button103->BackColor = Color::Black;}
+        //{button103->BackColor = this->BackColor;}
         if (GetAsyncKeyState(VK_RCONTROL) < 0)
         {
-            button104->BackColor = Color::Gray;
+            button104->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -5025,10 +5253,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_RCONTROL) >= 0)
-        {button104->BackColor = Color::Black;}
+        {
+            if (button104->BackColor != this->BackColor)
+            {button104->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_LEFT) < 0)
         {
-            button80->BackColor = Color::Gray;
+            button80->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -5050,10 +5281,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_LEFT) >= 0)
-        {button80->BackColor = Color::Black;}
+        {
+            if (button80->BackColor != this->BackColor)
+            {button80->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_DOWN) < 0)
         {
-            button79->BackColor = Color::Gray;
+            button79->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -5075,10 +5309,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_DOWN) >= 0)
-        {button79->BackColor = Color::Black;}
+        {
+            if (button79->BackColor != this->BackColor)
+            {button79->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_RIGHT) < 0)
         {
-            button78->BackColor = Color::Gray;
+            button78->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -5100,10 +5337,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_RIGHT) >= 0)
-        {button78->BackColor = Color::Black;}
+        {
+            if (button78->BackColor != this->BackColor)
+            {button78->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_NUMPAD0) < 0)
         {
-            button98->BackColor = Color::Gray;
+            button98->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -5125,10 +5365,13 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_NUMPAD0) >= 0)
-        {button98->BackColor = Color::Black;}
+        {
+            if (button98->BackColor != this->BackColor)
+            {button98->BackColor = this->BackColor;}
+        }
         if (GetAsyncKeyState(VK_DECIMAL) < 0)
         {
-            button97->BackColor = Color::Gray;
+            button97->BackColor = button1->FlatAppearance->MouseDownBackColor;
             if (f2->checkBox1->Checked == true)
             {
                 togglespamkey = true;
@@ -5150,10 +5393,168 @@ private: System::Windows::Forms::Button^ button105;
             }
         }
         else if (GetAsyncKeyState(VK_DECIMAL) >= 0)
-        {button97->BackColor = Color::Black;}
+        {
+            if (button97->BackColor != this->BackColor)
+            {button97->BackColor = this->BackColor;}
+        }
         #pragma endregion keys listener and spammer
+
+        #pragma region mouse listener and spammer
+        if (GetAsyncKeyState(VK_LBUTTON) < 0)
+        {
+            f3->button1->BackColor = button1->FlatAppearance->MouseDownBackColor;
+            if (f2->checkBox1->Checked == true)
+            {
+                togglespamkey = true;
+                toggledkey = VK_LBUTTON;
+                toggledkeystr = "lmb";
+            }
+            if (f2->checkBox2->Checked == true)
+            {
+                if (f2->checkBox4->Checked == true)
+                {
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("lmb") != -1)
+                    {
+                        siclick();//sikey("vk", VK_LBUTTON);
+                    }
+                }
+                else if (f2->checkBox4->Checked == false)
+                {
+                    if (f2->richTextBox1->Find("lmb") != -1)
+                    {
+                        siclick();//sikey("vk", VK_LBUTTON);
+                    }
+                }
+            }
+        }
+        else if (GetAsyncKeyState(VK_LBUTTON) >= 0)
+        {f3->button1->BackColor = this->BackColor;}
+        if (GetAsyncKeyState(VK_RBUTTON) < 0)
+        {
+            f3->button2->BackColor = button1->FlatAppearance->MouseDownBackColor;
+            /*if (f2->checkBox1->Checked == true)
+            {
+                togglespamkey = true;
+                toggledkey = VK_LBUTTON;
+                toggledkeystr = "lmb";
+            }
+            if (f2->checkBox2->Checked == true)
+            {
+                if (f2->checkBox4->Checked == true)
+                {
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("lmb") != -1)
+                    {
+                        sikey("vk", VK_LBUTTON);
+                    }
+                }
+                else if (f2->checkBox4->Checked == false)
+                {
+                    if (f2->richTextBox1->Find("lmb") != -1)
+                    {
+                        sikey("vk", VK_LBUTTON);
+                    }
+                }
+            }*/
+        }
+        else if (GetAsyncKeyState(VK_RBUTTON) >= 0)
+        {f3->button2->BackColor = this->BackColor;}
+        if (GetAsyncKeyState(VK_MBUTTON) < 0)
+        {
+            f3->button3->BackColor = button1->FlatAppearance->MouseDownBackColor;
+            /*if (f2->checkBox1->Checked == true)
+            {
+                togglespamkey = true;
+                toggledkey = VK_LBUTTON;
+                toggledkeystr = "lmb";
+            }
+            if (f2->checkBox2->Checked == true)
+            {
+                if (f2->checkBox4->Checked == true)
+                {
+                    if (windowtosendkeypressesto == GetForegroundWindow() && f2->richTextBox1->Find("lmb") != -1)
+                    {
+                        sikey("vk", VK_LBUTTON);
+                    }
+                }
+                else if (f2->checkBox4->Checked == false)
+                {
+                    if (f2->richTextBox1->Find("lmb") != -1)
+                    {
+                        sikey("vk", VK_LBUTTON);
+                    }
+                }
+            }*/
+        }
+        else if (GetAsyncKeyState(VK_MBUTTON) >= 0)
+        {f3->button3->BackColor = this->BackColor;}
+        #pragma endregion mouse listener and spammer
+
+        #pragma region themes
+        if (f2->comboBox1->Text == "Default" && this->BackColor != Color::Black)
+        {
+            this->BackColor = Color::Black;
+            f2->BackColor = Color::Black;
+            f3->BackColor = Color::Black;
+            this->ForeColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(255)), static_cast<Int32>(static_cast<Byte>(128)), static_cast<Int32>(static_cast<Byte>(0)));
+            f2->ForeColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(255)), static_cast<Int32>(static_cast<Byte>(128)), static_cast<Int32>(static_cast<Byte>(0)));
+            f3->ForeColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(255)), static_cast<Int32>(static_cast<Byte>(128)), static_cast<Int32>(static_cast<Byte>(0)));
+            for each (Control^ ctrl in this->Controls)
+            {
+                if (ctrl->GetType() == button1->GetType())
+                {
+                    safe_cast<Button^>(ctrl)->BackColor = Color::Black;
+                    safe_cast<Button^>(ctrl)->ForeColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(255)), static_cast<Int32>(static_cast<Byte>(128)), static_cast<Int32>(static_cast<Byte>(0)));
+                    safe_cast<Button^>(ctrl)->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
+                }
+            }
+            for each (Control^ ctrl in f3->Controls)
+            {
+                if (ctrl->GetType() == button1->GetType())
+                {
+                    safe_cast<Button^>(ctrl)->BackColor = Color::Black;
+                    safe_cast<Button^>(ctrl)->ForeColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(255)), static_cast<Int32>(static_cast<Byte>(128)), static_cast<Int32>(static_cast<Byte>(0)));
+                    safe_cast<Button^>(ctrl)->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
+                }
+            }
+        }
+        else if (f2->comboBox1->Text == "Christmas" && this->BackColor != Color::FromArgb(static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216))))
+        {
+            this->BackColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)));
+            f2->BackColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)));
+            f3->BackColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)));
+            this->ForeColor = Color::Red;
+            f2->ForeColor = Color::Red;
+            f3->ForeColor = Color::Red;
+            for each (Control^ ctrl in this->Controls)
+            {
+                if (ctrl->GetType() == button1->GetType())
+                {
+                    safe_cast<Button^>(ctrl)->BackColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)));
+                    safe_cast<Button^>(ctrl)->ForeColor = Color::Red;
+                    safe_cast<Button^>(ctrl)->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Green;
+                }
+            }
+            for each (Control^ ctrl in f3->Controls)
+            {
+                if (ctrl->GetType() == button1->GetType())
+                {
+                    safe_cast<Button^>(ctrl)->BackColor = Color::FromArgb(static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)), static_cast<Int32>(static_cast<Byte>(216)));
+                    safe_cast<Button^>(ctrl)->ForeColor = Color::Red;
+                    safe_cast<Button^>(ctrl)->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Green;
+                }
+            }
+        }
+        #pragma endregion themes
+
+        //keeps focus from continuously being on any button on the form so that if you press space it doesn't trigger spacebar button AND whatever button has focus
+        if ((GetForegroundWindow() == f1hwnd && GetAsyncKeyState(VK_LBUTTON) < 0) || f2->Visible == true)
+        {}
+        else
+        {label1->Focus();}
     }
     private: System::Void button105_Click(System::Object^ sender, System::EventArgs^ e)//settings button
     {f2->Show();}
+    private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e)
+    {}
 };
 }
