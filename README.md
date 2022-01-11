@@ -12,7 +12,7 @@ repeatedly 'til your fingers are raw. You simply press the key once, and it'll s
 ## Main Window
 <div align="center">
   <p>
-    <img src="https://github.com/Rixef/OSKHighlights/blob/main/.github/OSKH.png" width="902" alt="OSKH" />
+    <img src="https://github.com/Rixef/OSKHighlights/blob/main/.github/OSKH.png" width="1006" alt="OSKH" />
   </p>
 </div>
 
@@ -20,6 +20,13 @@ repeatedly 'til your fingers are raw. You simply press the key once, and it'll s
 <div align="center">
   <p>
     <img src="https://github.com/Rixef/OSKHighlights/blob/main/.github/OSKHSettings.png" width="545" alt="OSKHSettings" />
+  </p>
+</div>
+
+## Bonus On Screen Mouse Window
+<div align="center">
+  <p>
+    <img src="https://github.com/Rixef/OSKHighlights/blob/main/.github/OSMH.png" width="267" alt="OSMH" />
   </p>
 </div>
 
