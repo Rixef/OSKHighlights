@@ -1,5 +1,0 @@
-﻿  OSKHighlights.cpp
-C:\Users\Void\Documents\Visual Studio 2019\Projects\OSKHighlights\OSKHighlights\Form1.h(2273,1): warning C4312: 'type cast': conversion from 'int' to 'HWND' of greater size
-C:\Users\Void\Documents\Visual Studio 2019\Projects\OSKHighlights\OSKHighlights\Form1.h(2274,1): warning C4312: 'type cast': conversion from 'int' to 'HWND' of greater size
-  AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  OSKHighlights.vcxproj -> C:\Users\Void\Documents\Visual Studio 2019\Projects\OSKHighlights\x64\Debug\OSKHighlights.exe
