@@ -45,7 +45,9 @@ namespace OSKHighlights
 	public: System::Windows::Forms::CheckBox^ checkBox4;
 	public: System::Windows::Forms::CheckBox^ checkBox5;
 	private: System::Windows::Forms::ToolTip^ toolTip1;
-	public:
+	public: System::Windows::Forms::CheckBox^ checkBox6;
+	public: System::Windows::Forms::Label^ label3;
+	public: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
@@ -74,6 +76,9 @@ namespace OSKHighlights
 			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->checkBox6 = (gcnew System::Windows::Forms::CheckBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->BeginInit();
 			this->SuspendLayout();
@@ -81,6 +86,7 @@ namespace OSKHighlights
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
+			this->checkBox1->BackColor = System::Drawing::Color::Transparent;
 			this->checkBox1->Location = System::Drawing::Point(12, 65);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(155, 17);
@@ -88,12 +94,13 @@ namespace OSKHighlights
 			this->checkBox1->Text = L"Toggle Spam Keypress";
 			this->toolTip1->SetToolTip(this->checkBox1, L"If this is checked then you just need to press a key in the filter list and it wi"
 				L"ll spam the key for you");
-			this->checkBox1->UseVisualStyleBackColor = true;
+			this->checkBox1->UseVisualStyleBackColor = false;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &Form2::checkBox1_CheckedChanged);
 			// 
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
+			this->checkBox2->BackColor = System::Drawing::Color::Transparent;
 			this->checkBox2->Location = System::Drawing::Point(12, 88);
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(142, 17);
@@ -101,7 +108,7 @@ namespace OSKHighlights
 			this->checkBox2->Text = L"Hold Spam Keypress";
 			this->toolTip1->SetToolTip(this->checkBox2, L"If this is checked then holding one a the spam keys from the filter list will spa"
 				L"m it while you\'re holding it");
-			this->checkBox2->UseVisualStyleBackColor = true;
+			this->checkBox2->UseVisualStyleBackColor = false;
 			this->checkBox2->CheckedChanged += gcnew System::EventHandler(this, &Form2::checkBox2_CheckedChanged);
 			// 
 			// trackBar1
@@ -117,16 +124,18 @@ namespace OSKHighlights
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Location = System::Drawing::Point(194, 250);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(83, 13);
+			this->label1->Size = System::Drawing::Size(116, 13);
 			this->label1->TabIndex = 3;
-			this->label1->Text = L"OSK Opacity:";
+			this->label1->Text = L"OSK/OSM Opacity:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(304, 250);
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->Location = System::Drawing::Point(328, 250);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(133, 13);
 			this->label2->TabIndex = 5;
@@ -134,7 +143,7 @@ namespace OSKHighlights
 			// 
 			// trackBar2
 			// 
-			this->trackBar2->Location = System::Drawing::Point(304, 266);
+			this->trackBar2->Location = System::Drawing::Point(328, 266);
 			this->trackBar2->Minimum = 1;
 			this->trackBar2->Name = L"trackBar2";
 			this->trackBar2->Size = System::Drawing::Size(104, 45);
@@ -150,7 +159,7 @@ namespace OSKHighlights
 			// 
 			// button105
 			// 
-			this->button105->BackColor = System::Drawing::Color::Black;
+			this->button105->BackColor = System::Drawing::Color::Transparent;
 			this->button105->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button105->FlatAppearance->BorderSize = 2;
 			this->button105->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
@@ -172,6 +181,7 @@ namespace OSKHighlights
 			// label4
 			// 
 			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::Color::Transparent;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->Location = System::Drawing::Point(138, 9);
@@ -194,8 +204,9 @@ namespace OSKHighlights
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::Black;
+			this->button1->BackColor = System::Drawing::Color::Transparent;
 			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->button1->Enabled = false;
 			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Gray;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -206,9 +217,8 @@ namespace OSKHighlights
 			this->button1->Location = System::Drawing::Point(0, 0);
 			this->button1->Margin = System::Windows::Forms::Padding(0);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(545, 46);
+			this->button1->Size = System::Drawing::Size(845, 46);
 			this->button1->TabIndex = 109;
-			this->button1->Text = L"X";
 			this->button1->UseVisualStyleBackColor = false;
 			// 
 			// textBox2
@@ -226,6 +236,7 @@ namespace OSKHighlights
 			// label5
 			// 
 			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::Transparent;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(194, 83);
@@ -237,6 +248,7 @@ namespace OSKHighlights
 			// label6
 			// 
 			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::Transparent;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->Location = System::Drawing::Point(194, 122);
@@ -248,6 +260,7 @@ namespace OSKHighlights
 			// label7
 			// 
 			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::Color::Transparent;
 			this->label7->Location = System::Drawing::Point(12, 108);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(105, 13);
@@ -270,6 +283,7 @@ namespace OSKHighlights
 			// checkBox3
 			// 
 			this->checkBox3->AutoSize = true;
+			this->checkBox3->BackColor = System::Drawing::Color::Transparent;
 			this->checkBox3->Checked = true;
 			this->checkBox3->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->checkBox3->Location = System::Drawing::Point(194, 220);
@@ -279,7 +293,7 @@ namespace OSKHighlights
 			this->checkBox3->Text = L"OSK TopMost";
 			this->toolTip1->SetToolTip(this->checkBox3, L"If this is checked then the On Screen Keyboard will attempt to stay on top of all"
 				L" other windows even when it\'s not focused.");
-			this->checkBox3->UseVisualStyleBackColor = true;
+			this->checkBox3->UseVisualStyleBackColor = false;
 			// 
 			// richTextBox2
 			// 
@@ -287,16 +301,18 @@ namespace OSKHighlights
 			this->richTextBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->richTextBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->richTextBox2->Location = System::Drawing::Point(548, 0);
+			this->richTextBox2->Location = System::Drawing::Point(548, 49);
 			this->richTextBox2->Name = L"richTextBox2";
-			this->richTextBox2->Size = System::Drawing::Size(285, 311);
+			this->richTextBox2->Size = System::Drawing::Size(285, 262);
 			this->richTextBox2->TabIndex = 117;
 			this->richTextBox2->Text = resources->GetString(L"richTextBox2.Text");
+			this->richTextBox2->Visible = false;
 			this->richTextBox2->WordWrap = false;
 			// 
 			// checkBox4
 			// 
 			this->checkBox4->AutoSize = true;
+			this->checkBox4->BackColor = System::Drawing::Color::Transparent;
 			this->checkBox4->Checked = true;
 			this->checkBox4->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->checkBox4->Location = System::Drawing::Point(194, 65);
@@ -306,7 +322,7 @@ namespace OSKHighlights
 			this->checkBox4->Text = L"Only spam keys when specific window is focused:";
 			this->toolTip1->SetToolTip(this->checkBox4, L"If this is unchecked then any window that is the foreground window will have the "
 				L"spam keys in the filter list sent to it.");
-			this->checkBox4->UseVisualStyleBackColor = true;
+			this->checkBox4->UseVisualStyleBackColor = false;
 			// 
 			// checkBox5
 			// 
@@ -330,6 +346,47 @@ namespace OSKHighlights
 				L"want the class of and it will get it automatically.");
 			this->checkBox5->UseVisualStyleBackColor = false;
 			// 
+			// checkBox6
+			// 
+			this->checkBox6->AutoSize = true;
+			this->checkBox6->BackColor = System::Drawing::Color::Transparent;
+			this->checkBox6->Checked = true;
+			this->checkBox6->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->checkBox6->Location = System::Drawing::Point(328, 220);
+			this->checkBox6->Name = L"checkBox6";
+			this->checkBox6->Size = System::Drawing::Size(127, 17);
+			this->checkBox6->TabIndex = 120;
+			this->checkBox6->Text = L"On Screen Mouse";
+			this->toolTip1->SetToolTip(this->checkBox6, L"If this is checked then the On Screen Keyboard will attempt to stay on top of all"
+				L" other windows even when it\'s not focused.");
+			this->checkBox6->UseVisualStyleBackColor = false;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->BackColor = System::Drawing::Color::Transparent;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(328, 164);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(49, 13);
+			this->label3->TabIndex = 121;
+			this->label3->Text = L"Theme:";
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->BackColor = System::Drawing::Color::Black;
+			this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->comboBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Default", L"Christmas" });
+			this->comboBox1->Location = System::Drawing::Point(328, 182);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(121, 21);
+			this->comboBox1->TabIndex = 122;
+			this->comboBox1->Text = L"Default";
+			// 
 			// Form2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 13);
@@ -337,9 +394,11 @@ namespace OSKHighlights
 			this->BackColor = System::Drawing::Color::Black;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->ClientSize = System::Drawing::Size(845, 323);
+			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->checkBox6);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->checkBox4);
-			this->Controls->Add(this->richTextBox2);
 			this->Controls->Add(this->checkBox3);
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->label7);
@@ -356,6 +415,7 @@ namespace OSKHighlights
 			this->Controls->Add(this->checkBox2);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->button1);
+			this->Controls->Add(this->richTextBox2);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
@@ -393,52 +453,30 @@ namespace OSKHighlights
 	{
 		#pragma region opacity tracker for the settings form
 		if (trackBar2->Value == 1)
-		{
-			this->Opacity = 0.10;
-		}
+		{this->Opacity = 0.10;}
 		else if (trackBar2->Value == 2)
-		{
-			this->Opacity = 0.20;
-		}
+		{this->Opacity = 0.20;}
 		else if (trackBar2->Value == 3)
-		{
-			this->Opacity = 0.30;
-		}
+		{this->Opacity = 0.30;}
 		else if (trackBar2->Value == 4)
-		{
-			this->Opacity = 0.40;
-		}
+		{this->Opacity = 0.40;}
 		else if (trackBar2->Value == 5)
-		{
-			this->Opacity = 0.50;
-		}
+		{this->Opacity = 0.50;}
 		else if (trackBar2->Value == 6)
-		{
-			this->Opacity = 0.60;
-		}
+		{this->Opacity = 0.60;}
 		else if (trackBar2->Value == 7)
-		{
-			this->Opacity = 0.70;
-		}
+		{this->Opacity = 0.70;}
 		else if (trackBar2->Value == 8)
-		{
-			this->Opacity = 0.80;
-		}
+		{this->Opacity = 0.80;}
 		else if (trackBar2->Value == 9)
-		{
-			this->Opacity = 0.90;
-		}
+		{this->Opacity = 0.90;}
 		else if (trackBar2->Value == 10)
-		{
-			this->Opacity = 1.0;
-		}
+		{this->Opacity = 1.0;}
 		this->toolTip1->SetToolTip(trackBar1, trackBar1->Value.ToString());
 		this->toolTip1->SetToolTip(trackBar2, trackBar2->Value.ToString());
 		#pragma endregion opacity tracker for the settings form
 	}
 	private: System::Void button105_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		this->Hide();
-	}
+	{this->Hide();}
 };
 }
